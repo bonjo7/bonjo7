@@ -1,9 +1,16 @@
-import MainPage from "./components/Main"
+import MainPage from "./components/MainContent/Main"
+import SideBar from "./components/SideBar/SideBar"
+import "./App.css"
 
 function App() {
   return (
-    <div className='App'>
-    <MainPage/>
+    <div className='container'>
+      <div className='SideBar'>
+    <SideBar/>
+    </div>
+    <div className="MainContent">
+   <MainPage/>
+    </div>
     </div>
   );
 }
