@@ -1,7 +1,11 @@
-.navBar{
-    background-color: rgb(3, 102, 252);
+.navBar {
+  background-color: rgb(3, 102, 252);
 }
 
-.link{
-    color:white !important;
+.link {
+  color: white !important;
+}
+
+.hamburgerIcon {
+  border-color: white !important;
 }
