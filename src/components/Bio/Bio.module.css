@@ -1,0 +1,17 @@
+.AppLogo {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 2px solid blue;
+}
+.wrapper {
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: white;
+}
+  
