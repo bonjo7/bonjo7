@@ -12,7 +12,6 @@ function App() {
       <NavBar />
       <div className="wrapper">
       <Route exact path='/bonjo7' component={Bio} />
-      <Route exact path='/' component={Bio} />
       </div>
       </div>
     </Router>
