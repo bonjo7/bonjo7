@@ -2,7 +2,7 @@
   height: 200px;
   width: 200px;
   border-radius: 50%;
-  border: 8px solid white;
+  border: 3px solid #d9dadb ;
 }
 
 .wrapper {
@@ -12,29 +12,27 @@
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  color: white;
+  color: #1d44b8;
 }
 
 .hr{
  
   margin-top: -10px;
   width: 68%;               
-  background-color:whitesmoke;
-  height: 2px;
+  background-color:#d9dadb;
+  height: 1px;
 }
 
 .name{
-  color: white;
+  color: #1d44b8;
   font-weight: bold;
   font-size: 60px;
-  text-shadow: 2px 2px 4px #000000
 }
 
 .title{
-  color: white;
+  color: #1d44b8;
   font-weight: bold;
   font-size: 30px;
-  text-shadow: 2px 2px 4px #000000;
-  margin-top: -10px;
+  margin-top: -5px;
 }
   

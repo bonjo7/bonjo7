@@ -9,3 +9,26 @@
     margin-top: -20px;
     font-size: 18px;
   }
+
+  .contactWrapper{
+    display: flex;
+  }
+
+  .contactWrapper a{
+    font-weight: bold;
+    text-decoration: none;
+    color: #1d44b8;
+  }
+
+  .icon{
+    margin-top: -2px;
+    margin-right: 5px;
+  }
+
+  .socialIcon{
+    padding: 20px;
+  }
+
+  .socialComponent{
+    margin-top: 20px;
+  }

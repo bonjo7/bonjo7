@@ -4,18 +4,18 @@ import { List } from "phosphor-react";
 import styles from "./NavBar.module.css";
 
 const navItems = [
-  {
-    link: "/sidebar",
-    linkName: "Skills",
-  },
-  {
-    link: "/experience",
-    linkName: "Experience",
-  },
-  {
-    link: "/education",
-    linkName: "Education",
-  },
+  // {
+  //   link: "/sidebar",
+  //   linkName: "Skills",
+  // },
+  // {
+  //   link: "/experience",
+  //   linkName: "Experience",
+  // },
+  // {
+  //   link: "/education",
+  //   linkName: "Education",
+  // },
 ];
 
 const NavBar = () => {

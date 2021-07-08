@@ -3,8 +3,8 @@ import Contact from "../Contact/Contact"
 import styles from "./Bio.module.css";
 import logo from "../../images/BT.png";
 
-const email = "Email: bernardthompson83@gmail.com"
-const tel = "Tel: +353 87 137 7303"
+const email = "bernardthompson83@gmail.com";
+const tel = "+353 87 137 7303";
 
 const Bio = () => {
   return (

@@ -11,6 +11,7 @@ function App() {
       <div className="main">
       <NavBar />
       <div className="wrapper">
+      <Route exact path='/bonjo7' component={Bio} />
       <Route exact path='/' component={Bio} />
       </div>
       </div>
