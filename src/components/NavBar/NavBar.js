@@ -4,10 +4,11 @@ import { List } from "phosphor-react";
 import styles from "./NavBar.module.css";
 
 const navItems = [
-  // {
-  //   link: "/sidebar",
-  //   linkName: "Skills",
-  // },
+  {
+    id: 0,
+    link: "/skills",
+    linkName: "Skills",
+  },
   // {
   //   link: "/experience",
   //   linkName: "Experience",
@@ -38,7 +39,7 @@ const NavBar = () => {
         <Nav className='mr-auto'>
           {navItems.map((item) => {
             return (
-              <Nav.Link className={styles.link} href={item.link}>
+              <Nav.Link key={item.id} className={styles.link} href={item.link}>
                 {item.linkName}
               </Nav.Link>
             );
