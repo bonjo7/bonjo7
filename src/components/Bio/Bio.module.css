@@ -16,7 +16,6 @@
 }
 
 .hr{
- 
   margin-top: -10px;
   width: 68%;               
   background-color:#d9dadb;
@@ -24,6 +23,7 @@
 }
 
 .name{
+  text-align: center;
   color: #1d44b8;
   font-weight: bold;
   font-size: 60px;
