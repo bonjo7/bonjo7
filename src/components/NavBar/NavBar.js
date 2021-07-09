@@ -24,7 +24,7 @@ const NavBar = () => {
     <div className={styles.fullWidth}>
     <div className={styles.wrapper}>
     <Navbar className={styles.navBar} expand='lg'>
-      <Navbar.Brand className={styles.link} href='/bonjo7'>
+      <Navbar.Brand className={styles.link} href='/'>
         Bernard Thompson
       </Navbar.Brand>
       <Navbar.Toggle
