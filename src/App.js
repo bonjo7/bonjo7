@@ -1,4 +1,4 @@
-import React, { Component} from "react";
+import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Bio from "./components/Bio/Bio";
 import Skills from "./components/Skills/Skills"
@@ -6,9 +6,7 @@ import NavBar from "./components/NavBar/NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-class App extends Component {
-
-  render(){
+const App = () => {
     return (
       <Router>
         <div className="main">
@@ -19,9 +17,7 @@ class App extends Component {
         </div>
         </div>
       </Router>
-    );
-  }
-  
+    ); 
 }
 
 export default App;
