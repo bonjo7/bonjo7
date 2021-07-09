@@ -1,5 +1,5 @@
-import React, { Component} from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React from "react";
+import { HashRouter as Router, Route } from "react-router-dom";
 import Bio from "./components/Bio/Bio";
 import Skills from "./components/Skills/Skills"
 import NavBar from "./components/NavBar/NavBar";
@@ -8,19 +8,17 @@ import "./App.css";
 
 const App = () => {
 
-  
     return (
       <Router>
         <div className="main">
         <NavBar />
         <div className="wrapper">
-        <Route exact path='/' component={Bio} />
+        <Route exact path='/bonjo7' component={Bio} />
         <Route exact path='/skills' component={Skills} />
         </div>
         </div>
       </Router>
     );
-  
   
 }
 
