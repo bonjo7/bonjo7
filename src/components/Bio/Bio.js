@@ -1,7 +1,7 @@
 import React from "react";
 import Contact from "../Contact/Contact"
 import styles from "./Bio.module.css";
-import logo from "../../images/prime.jpeg";
+import logo from "../../images/prime.png";
 
 const email = "bernardthompson83@gmail.com";
 const tel = "+353 87 137 7303";
