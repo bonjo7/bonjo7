@@ -9,7 +9,6 @@ const Tech = () => {
       <Container>
         <div className={styles.wrapper}>
           {techSkills.map((skill, key) => {
-            console.log(skill);
             return (
               <div key={key} className={styles.listWrapper}>
                 <h5 className={styles.title}>{skill.title}</h5>

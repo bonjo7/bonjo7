@@ -10,10 +10,10 @@ const navItems = [
     link: "/skills",
     linkName: "Skills",
   },
-  // {
-  //   link: "/experience",
-  //   linkName: "Experience",
-  // },
+  {
+    link: "/experience",
+    linkName: "Experience",
+  },
   // {
   //   link: "/education",
   //   linkName: "Education",
