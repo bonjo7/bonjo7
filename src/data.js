@@ -73,7 +73,7 @@ export const experienceData = [
     id: 2,
     image: SE2,
     companyName: "SE2",
-    year: "Spetember 2018 -  December 2018",
+    year: "September 2018 -  December 2018",
     roleDates: [
       "September 2018 – December 2018"
     ],
