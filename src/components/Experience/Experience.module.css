@@ -1,46 +1,58 @@
 .background {
-    background-color: #fff !important;
-    border-bottom: 1px solid #dee2e6;
-    border-left: 1px solid #dee2e6;
-    border-right: 1px solid #dee2e6;
-  }
+  background-color: #fff !important;
+  border-bottom: 1px solid #dee2e6;
+  border-left: 1px solid #dee2e6;
+  border-right: 1px solid #dee2e6;
+}
 
-  .wrapper{
-    text-align: left;
-    display: flex;
-    flex-flow: row wrap;
-  }
+.wrapper {
+  text-align: left;
+  display: flex;
+  flex-flow: row wrap;
+}
 
-  .name{
-    text-align: left !important;
-     margin-left: 80px;
-     font-size: 20px !important;
-  }
+.role {
+  margin-left: 5%;
+}
 
-  .year{
-      color: #212529 !important;
-      font-style: italic !important;
-    text-align: left;
-    font-size: 14px;
-  }
+.name {
+  text-align: left !important;
+  margin-left: 80px;
+  font-size: 20px !important;
+}
 
-  .caret{
-    position: absolute;
-    right: 0;
-    margin-right: 30px;
-    margin-top: 10px;
-  }
+.year {
+  color: #212529 !important;
+  font-style: italic !important;
+  text-align: left;
+  font-size: 14px;
+}
 
-  .accordian{
-      background-color: #fff !important;
-      border: none !important;
-  }
+.responsibilities li {
+  list-style-type: disc;
+}
 
-  .headerName{
-      color: #1d44b8 !important;
-  }
+.responsibilities ul{
+  margin-left: 10px;
+}
 
-  .image{
-      width: 120px;
-      height: 50px;
-  }
+.caret {
+  position: absolute;
+  right: 0;
+  margin-right: 30px;
+  margin-top: 10px;
+}
+
+.accordian {
+  background-color: #fff !important;
+  border: none !important;
+}
+
+.headerName {
+  color: #1d44b8 !important;
+}
+
+.image {
+  width: 120px;
+  height: 50px;
+}

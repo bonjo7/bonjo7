@@ -38,7 +38,40 @@ const Experience = () => {
                   </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey={exp.id}>
-                  <Card.Body>Hello! I'm the body</Card.Body>
+                  <Card.Body>
+                    <div className={styles.wrapper}>
+                      <div>
+                        <ul>
+                          {exp?.roleDates?.map((dates) => {
+                            return (
+                              <li
+                                style={{ fontStyle: "italic" }}
+                              >{`${dates}:`}</li>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                      <div className={styles.role}>
+                        <ul>
+                          {exp?.role?.map((role) => {
+                            return (
+                              <li style={{ fontWeight: "bold" }}>{role}</li>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    </div>
+                    <h5>{exp?.roles ? "Responsibilities" : ""}</h5>
+                    <div className={styles.responsibilities}>
+                      {exp?.roles?.map((responsibilities) => {
+                        return (
+                          <ul>
+                            <li>{responsibilities}</li>
+                          </ul>
+                        );
+                      })}
+                    </div>
+                  </Card.Body>
                 </Accordion.Collapse>
               </Card>
             );

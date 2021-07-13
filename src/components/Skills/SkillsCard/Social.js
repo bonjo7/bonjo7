@@ -10,7 +10,6 @@ const Social = () => {
     <Container>
     <div className={styles.wrapper}>
             {softSkills.map((skill, key) => {
-              console.log(skill)
               return(
                <div key={key} className={styles.listSocialWrapper}>
               <h5 className={styles.title}>{skill.title}</h5>

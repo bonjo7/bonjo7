@@ -1,4 +1,4 @@
-import RedHat from "./images/redhat-logo.png";
+import RedHat from "./images/RedHatLogo.png";
 import SE2 from "./images/SE2.png";
 import WaterfordAirport from "./images/Waterford-Airport.png";
 import DefenceForces from "./images/defence-forces.jpeg";
@@ -49,7 +49,10 @@ export const experienceData = [
     image: RedHat,
     companyName: "Red Hat",
     year: "January 2019 - Present",
-    roleDates: ["August 2020 – Present", "January 2019 – August 2020"],
+    roleDates: [
+      "August 2020 – Present", 
+      "January 2019 – August 2020"
+    ],
     role: ["Associate App Dev Consultant", "Graduate App Dev Consultant"],
     address: "Red Hat, Communications House, Cork Road, Waterford, Ireland.",
     roles: [
@@ -71,23 +74,81 @@ export const experienceData = [
     image: SE2,
     companyName: "SE2",
     year: "Spetember 2018 -  December 2018",
+    roleDates: [
+      "September 2018 – December 2018"
+    ],
+    role: ["Junior Robotics Processing Automation Engineer"],
+    address: "SE2, Killowen, Co. Waterford.",
+    roles: [
+      "Creating and documenting design artifacts, test procedures and scenarios.",
+      "Create and maintain solution documentation and provide training to client users over the web or in person.",
+      "Working within project planning guidelines, communicating any identified project risks and issues to the delivery/project manager accordingly and providing inputs to the change control process.",
+      "Configuring new RPA processes and objects using core workflow principles that are efficient, well structured, maintainable and easy to understand.",
+      "Design solutions utilizing RPA best practices and maintain technical responsibility for project delivery.",
+      "Ability to understand opportunities for automation.",
+    ],
   },
   {
     id: 3,
     image: WaterfordAirport,
     companyName: "Waterford Airport",
     year: "April 2007 - April 2018",
+    roleDates: [
+      "April 2007 - April 2018"
+    ],
+    role: ["Recruit Aviation Fire & Rescue/ Security Officer/ Operations Personnel"],
+    address: "Waterford Airport, Killowen, Co. Waterford.",
+    roles: [
+      "Servicing of fire appliances and equipment.",
+      "Ongoing fire training as directed by the officer in charge.",
+      "Screening of passengers, luggage and freight..",
+      "Security patrols on a regular basis.",
+      "Liaising with Immigration and Customs.",
+      "Quality control of aviation fuel.",
+      "Refuelling, cleaning and De-icing of aircraft.",
+      "Marshalling aircraft for arrival and departure.",
+      "Intercommunication between ground staff, flight crew and ATC.",
+      "Maintaining and upholding all standard operating procedures.",
+      "Completion of customer invoices and accounts",
+    ],
   },
   {
     id: 4,
     image: DefenceForces,
     companyName: "Irish Defence Forces",
     year: "December 2006 - April 2007",
+    roleDates: [
+      "December 2006 - April 2007"
+    ],
+    role: ["Recruit Soldier"],
+    address: "Irish Defence Forces, Kickham Barracks, Waterford Road, Clonmel, Co.  Tipperary.",
+    roles: [
+      "Weapons training.",
+      "Obeying orders.",
+      "Foot drills.",
+      "Physical training.",
+    ],
   },
   {
     id: 5,
     image: Musgraves,
     companyName: "Musgraves Cash & Carry",
     year: "September 2001 - December 2006",
+    roleDates: [
+      "September 2001 – December 2006"
+    ],
+    role: ["Warehouse/ Delivery Personnel"],
+    address: "Musgrave Cash & Carry, Keanes Road, Waterford.",
+    roles: [
+      "Stock control.",
+      "Preparing customer orders.",
+      "Merchandising of stock.",
+      "House Keeping.",
+      "Operating manual and electrical pallet trucks.",
+      "Delivery of customer orders, collecting payment and issuing of receipt.",
+      "Strong relationship building with both suppliers and customers via phone, fax, email and face to face.",
+      "Dealing with customer queries.",
+      "Maintaining and upholding company procedures.",
+    ],
   },
 ];
