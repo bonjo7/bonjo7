@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 import { List } from "phosphor-react";
 import styles from "./NavBar.module.css";
@@ -11,6 +10,7 @@ const navItems = [
     linkName: "Skills",
   },
   {
+    id: 1,
     link: "/experience",
     linkName: "Experience",
   },
@@ -20,12 +20,14 @@ const navItems = [
   // },
 ];
 
+const getUrl = window.location.pathname;
+
 const NavBar = () => {
   return (
     <div className={styles.fullWidth}>
     <div className={styles.wrapper}>
     <Navbar className={styles.navBar} expand='lg'>
-      <Navbar.Brand className={styles.link} as={Link} to='/'>
+      <Navbar.Brand className={styles.link} href='/'>
         Bernard Thompson
       </Navbar.Brand>
       <Navbar.Toggle
@@ -36,11 +38,11 @@ const NavBar = () => {
           <List size={24} color='#ffffff' />
         </span>
       </Navbar.Toggle>
-      <Navbar.Collapse id='basic-navbar-nav' className={styles.link}>
-        <Nav className='mr-auto'>
+      <Navbar.Collapse id='basic-navbar-nav' className="justify-content-end">
+        <Nav className="justify-content-end">
           {navItems.map((item) => {
             return (
-              <Nav.Link key={item.id} className={styles.link} as={Link} to={item.link}>
+              <Nav.Link key={item.id} className={getUrl === item.link ? styles.active : styles.link} href={item.link} >
                 {item.linkName}
               </Nav.Link>
             );

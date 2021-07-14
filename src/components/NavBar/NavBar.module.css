@@ -8,6 +8,14 @@
   color: white !important;
 }
 
+.active{
+  color: rgb(201, 191, 191) !important;
+}
+
+.link:hover{
+  color: rgb(177, 176, 176) !important;
+}
+
 .hamburgerIcon {
   border-color: white !important;
 }

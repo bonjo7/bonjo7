@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Bio from "./components/Bio/Bio";
 import Skills from "./components/Skills/Skills";
 import Experience from "./components/Experience/Experience";

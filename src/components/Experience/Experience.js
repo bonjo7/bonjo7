@@ -9,9 +9,9 @@ const Experience = () => {
     <Jumbotron fluid className={styles.background}>
       <Container>
         <Accordion className={styles.accordian}>
-          {experienceData.map((exp) => {
+          {experienceData.map((exp, key) => {
             return (
-              <Card>
+              <Card key={key}>
                 <Card.Header className={styles.accordian}>
                   <Accordion.Toggle
                     className={styles.headerName}
@@ -19,7 +19,7 @@ const Experience = () => {
                     variant='link'
                     eventKey={exp.id}
                   >
-                    <div className={styles.wrapper}>
+                    <div className={styles.wrapper} key={key}>
                       <div className={styles.imgDiv}>
                         <img
                           src={exp.image}
@@ -39,19 +39,19 @@ const Experience = () => {
                 </Card.Header>
                 <Accordion.Collapse eventKey={exp.id}>
                   <Card.Body>
-                    {exp?.positionHeld?.map((position) => {
+                    {exp?.positionHeld?.map((position, key) => {
                       return (
                         <div className={styles.wrapper}>
                           <div>
                             <ul>
-                              <li
+                              <li key={key}
                                 style={{ fontStyle: "italic" }}
                               >{`${position.date}:`}</li>
                             </ul>
                           </div>
                           <div className={styles.role}>
                             <ul>
-                              <li style={{ fontWeight: "bold" }}>
+                              <li key={key} style={{ fontWeight: "bold" }}>
                                 {position.title}
                               </li>
                             </ul>
@@ -62,10 +62,10 @@ const Experience = () => {
 
                     <h5>{exp?.responsibilities ? "Responsibilities" : ""}</h5>
                     <div className={styles.responsibilities}>
-                      {exp?.responsibilities?.map((responsibilities) => {
+                      {exp?.responsibilities?.map((responsibilities, key) => {
                         return (
                           <ul>
-                            <li>{responsibilities}</li>
+                            <li key={key}>{responsibilities}</li>
                           </ul>
                         );
                       })}
