@@ -42,8 +42,11 @@ const NavBar = () => {
       <Navbar.Collapse id='basic-navbar-nav' className="justify-content-end">
         <Nav className="justify-content-end">
           {navItems.map((item) => {
+            console.log("geturl", getUrl)
+            console.log("generatedurlNEW", `https://bonjo7.github.io/bonjo7/#/${item.link}`)
+            console.log("boolean", getUrl === `https://bonjo7.github.io/bonjo7/#${item.link}`)
             return (
-              <Nav.Link key={item.id} className={`${getUrl}${item.link}` === item.link ? styles.active : styles.link} as={Link} to={item.link} >
+              <Nav.Link key={item.id} className={getUrl === `https://bonjo7.github.io/bonjo7/#${item.link}` ? styles.active : styles.link} as={Link} to={item.link} >
                 {item.linkName}
               </Nav.Link>
             );
