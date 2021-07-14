@@ -39,31 +39,30 @@ const Experience = () => {
                 </Card.Header>
                 <Accordion.Collapse eventKey={exp.id}>
                   <Card.Body>
-                    <div className={styles.wrapper}>
-                      <div>
-                        <ul>
-                          {exp?.roleDates?.map((dates) => {
-                            return (
+                    {exp?.positionHeld?.map((position) => {
+                      return (
+                        <div className={styles.wrapper}>
+                          <div>
+                            <ul>
                               <li
                                 style={{ fontStyle: "italic" }}
-                              >{`${dates}:`}</li>
-                            );
-                          })}
-                        </ul>
-                      </div>
-                      <div className={styles.role}>
-                        <ul>
-                          {exp?.role?.map((role) => {
-                            return (
-                              <li style={{ fontWeight: "bold" }}>{role}</li>
-                            );
-                          })}
-                        </ul>
-                      </div>
-                    </div>
-                    <h5>{exp?.roles ? "Responsibilities" : ""}</h5>
+                              >{`${position.date}:`}</li>
+                            </ul>
+                          </div>
+                          <div className={styles.role}>
+                            <ul>
+                              <li style={{ fontWeight: "bold" }}>
+                                {position.title}
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      );
+                    })}
+
+                    <h5>{exp?.responsibilities ? "Responsibilities" : ""}</h5>
                     <div className={styles.responsibilities}>
-                      {exp?.roles?.map((responsibilities) => {
+                      {exp?.responsibilities?.map((responsibilities) => {
                         return (
                           <ul>
                             <li>{responsibilities}</li>

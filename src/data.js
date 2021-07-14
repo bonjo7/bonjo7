@@ -49,13 +49,18 @@ export const experienceData = [
     image: RedHat,
     companyName: "Red Hat",
     year: "January 2019 - Present",
-    roleDates: [
-      "August 2020 – Present", 
-      "January 2019 – August 2020"
+    positionHeld : [
+      {
+        date: "August 2020 – Present",
+        title: "Associate App Dev Consultant"
+      },
+      {
+        date: "January 2019 – August 2020",
+        title: "Graduate App Dev Consultant"
+      }
     ],
-    role: ["Associate App Dev Consultant", "Graduate App Dev Consultant"],
     address: "Red Hat, Communications House, Cork Road, Waterford, Ireland.",
-    roles: [
+    responsibilities: [
       "Constantly learn about new Red Hat technologies and apply those concepts to customer needs.",
       "Working with modern application development practices and evaluate existing applications to update and add new features.",
       "Assist with technical and non-technical project-related activities.",
@@ -74,12 +79,14 @@ export const experienceData = [
     image: SE2,
     companyName: "SE2",
     year: "September 2018 -  December 2018",
-    roleDates: [
-      "September 2018 – December 2018"
+    positionHeld : [
+      {
+        date: "September 2018 – December 2018",
+        title: "Junior Robotics Processing Automation Engineer"
+      }
     ],
-    role: ["Junior Robotics Processing Automation Engineer"],
     address: "SE2, Killowen, Co. Waterford.",
-    roles: [
+    responsibilities: [
       "Creating and documenting design artifacts, test procedures and scenarios.",
       "Create and maintain solution documentation and provide training to client users over the web or in person.",
       "Working within project planning guidelines, communicating any identified project risks and issues to the delivery/project manager accordingly and providing inputs to the change control process.",
@@ -93,12 +100,14 @@ export const experienceData = [
     image: WaterfordAirport,
     companyName: "Waterford Airport",
     year: "April 2007 - April 2018",
-    roleDates: [
-      "April 2007 - April 2018"
+    positionHeld : [
+      {
+        date: "April 2007 - April 2018",
+        title: "Recruit Aviation Fire & Rescue/ Security Officer/ Operations Personnel"
+      }
     ],
-    role: ["Recruit Aviation Fire & Rescue/ Security Officer/ Operations Personnel"],
     address: "Waterford Airport, Killowen, Co. Waterford.",
-    roles: [
+    responsibilities: [
       "Servicing of fire appliances and equipment.",
       "Ongoing fire training as directed by the officer in charge.",
       "Screening of passengers, luggage and freight..",
@@ -117,12 +126,15 @@ export const experienceData = [
     image: DefenceForces,
     companyName: "Irish Defence Forces",
     year: "December 2006 - April 2007",
-    roleDates: [
-      "December 2006 - April 2007"
+    positionHeld : [
+      {
+        date: "December 2006 - April 2007",
+        title: "Recruit Soldier"
+      }
     ],
-    role: ["Recruit Soldier"],
-    address: "Irish Defence Forces, Kickham Barracks, Waterford Road, Clonmel, Co.  Tipperary.",
-    roles: [
+    address:
+      "Irish Defence Forces, Kickham Barracks, Waterford Road, Clonmel, Co.  Tipperary.",
+    responsibilities: [
       "Weapons training.",
       "Obeying orders.",
       "Foot drills.",
@@ -134,12 +146,14 @@ export const experienceData = [
     image: Musgraves,
     companyName: "Musgraves Cash & Carry",
     year: "September 2001 - December 2006",
-    roleDates: [
-      "September 2001 – December 2006"
+    positionHeld : [
+      {
+        date: "September 2001 – December 2006",
+        title: "Warehouse/ Delivery Personnel"
+      }
     ],
-    role: ["Warehouse/ Delivery Personnel"],
     address: "Musgrave Cash & Carry, Keanes Road, Waterford.",
-    roles: [
+    responsibilities: [
       "Stock control.",
       "Preparing customer orders.",
       "Merchandising of stock.",
