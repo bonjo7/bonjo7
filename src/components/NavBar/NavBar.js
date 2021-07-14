@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 import { Navbar, Nav } from "react-bootstrap";
 import { List } from "phosphor-react";
 import styles from "./NavBar.module.css";
@@ -27,7 +28,7 @@ const NavBar = () => {
     <div className={styles.fullWidth}>
     <div className={styles.wrapper}>
     <Navbar className={styles.navBar} expand='lg'>
-      <Navbar.Brand className={styles.link} href='/'>
+      <Navbar.Brand className={styles.link} as={Link} to='/'>
         Bernard Thompson
       </Navbar.Brand>
       <Navbar.Toggle
@@ -42,7 +43,7 @@ const NavBar = () => {
         <Nav className="justify-content-end">
           {navItems.map((item) => {
             return (
-              <Nav.Link key={item.id} className={getUrl === item.link ? styles.active : styles.link} href={item.link} >
+              <Nav.Link key={item.id} className={getUrl === item.link ? styles.active : styles.link} as={Link} to={item.link} >
                 {item.linkName}
               </Nav.Link>
             );
