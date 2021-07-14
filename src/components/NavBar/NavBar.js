@@ -21,7 +21,7 @@ const navItems = [
   // },
 ];
 
-const getUrl = window.location.pathname;
+const getUrl = `${window.location.href}`;
 
 const NavBar = () => {
   return (
@@ -43,7 +43,7 @@ const NavBar = () => {
         <Nav className="justify-content-end">
           {navItems.map((item) => {
             return (
-              <Nav.Link key={item.id} className={getUrl === item.link ? styles.active : styles.link} as={Link} to={item.link} >
+              <Nav.Link key={item.id} className={`${getUrl}${item.link}` === item.link ? styles.active : styles.link} as={Link} to={item.link} >
                 {item.linkName}
               </Nav.Link>
             );
