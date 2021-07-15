@@ -3,6 +3,8 @@ import SE2 from "./images/SE2.png";
 import WaterfordAirport from "./images/Waterford-Airport.png";
 import DefenceForces from "./images/defence-forces.jpeg";
 import Musgraves from "./images/musgraves.png";
+import WIT from "./images/WIT-logo.jpeg";
+import ILM from "./images/ilm.png"
 
 export const techSkills = [
   {
@@ -164,5 +166,35 @@ export const experienceData = [
       "Dealing with customer queries.",
       "Maintaining and upholding company procedures.",
     ],
+  },
+];
+
+export const educationData = [
+  {
+    id: 0,
+    image: ILM,
+    name: "Institute of Leadership and Management",
+    course: "Leadership & Management",
+    year: "2019 - 2020",
+    grade: "Level 3",
+    link: "https://www.credly.com/badges/a8bbedc6-efae-4e50-bbb1-67b93109f5c7"
+  },
+  {
+    id: 1,
+    image: WIT,
+    name: "Waterford Institute of Technology",
+    address: "Cork Road, Waterford, Ireland",
+    course: "Higher Diplomia in Computer Science",
+    year: "2018 - 2020",
+    grade: "First Class Honours"
+  },
+  {
+    id: 2,
+    image: WIT,
+    name: "Waterford Institute of Technology",
+    address: "Cork Road, Waterford, Ireland",
+    course: "Bachelor of Science in Information Technology",
+    year: "2014 - 2017",
+    grade: "Pass with Distinction"
   },
 ];

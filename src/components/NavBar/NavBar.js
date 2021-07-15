@@ -15,10 +15,11 @@ const navItems = [
     link: "/experience",
     linkName: "Experience",
   },
-  // {
-  //   link: "/education",
-  //   linkName: "Education",
-  // },
+  {
+    id: 2,
+    link: "/education",
+    linkName: "Education",
+  },
 ];
 
 const NavBar = () => {

@@ -1,0 +1,36 @@
+.background {
+    background-color: #fff !important;
+    border-bottom: 1px solid #dee2e6;
+    border-left: 1px solid #dee2e6;
+    border-right: 1px solid #dee2e6;
+  }
+
+  .wrapper {
+    text-align: left;
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .card {
+    border-left: 0 !important;
+    border-right: 0 !important;
+  }
+
+  .img{
+    width: 150px;
+    height: 150px;
+  }
+
+  .imgWrapper{
+    margin-top: -20px;
+  }
+
+  .grade{
+    color: rgb(114, 112, 112) !important;
+    font-style: italic;
+    font-size: 18px;
+  }
+
+  .cardText{
+    font-size: 15px;
+  }
