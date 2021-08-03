@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 import { List } from "phosphor-react";
 import styles from "./NavBar.module.css";
@@ -25,32 +25,41 @@ const navItems = [
 const NavBar = () => {
   return (
     <div className={styles.fullWidth}>
-    <div className={styles.wrapper}>
-    <Navbar className={styles.navBar} expand='lg'>
-      <Navbar.Brand className={styles.link} as={Link} to='/'>
-        Bernard Thompson
-      </Navbar.Brand>
-      <Navbar.Toggle
-        className={styles.hamburgerIcon}
-        aria-controls='basic-navbar-nav'
-      >
-        <span>
-          <List size={24} color='#ffffff' />
-        </span>
-      </Navbar.Toggle>
-      <Navbar.Collapse id='basic-navbar-nav' className="justify-content-end">
-        <Nav className="justify-content-end">
-          {navItems.map((item) => {
-            return (
-              <Nav.Link key={item.id} className={styles.link} as={Link} to={item.link} >
-                {item.linkName}
-              </Nav.Link>
-            );
-          })}
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
-    </div>
+      <div className={styles.wrapper}>
+        <Navbar className={styles.navBar} collapseOnSelect expand='lg'>
+          <Navbar.Brand className={styles.link} as={Link} to='/' href={'/'}>
+            Bernard Thompson
+          </Navbar.Brand>
+          <Navbar.Toggle
+            className={styles.hamburgerIcon}
+            aria-controls='basic-navbar-nav'
+          >
+            <span>
+              <List size={24} color='#ffffff' />
+            </span>
+          </Navbar.Toggle>
+          <Navbar.Collapse
+            id='basic-navbar-nav'
+            className='justify-content-end'
+          >
+            <Nav className='justify-content-end'>
+              {navItems.map((item) => {
+                return (
+                  <Nav.Link
+                    key={item.id}
+                    className={styles.link}
+                    as={Link}
+                    to={item.link}
+                    href={item.link}
+                  >
+                    {item.linkName}
+                  </Nav.Link>
+                );
+              })}
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      </div>
     </div>
   );
 };
