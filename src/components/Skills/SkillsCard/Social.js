@@ -5,7 +5,7 @@ import styles from "./SkillsCard.module.css";
 
 const Social = () => {
   return (
-    <Jumbotron fluid className={styles.background}>
+    <Jumbotron fluid className={styles.background} role='main'>
       <Container>
         <div className={styles.wrapper}>
           {softSkills.map((skill, key) => {
