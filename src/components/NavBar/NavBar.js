@@ -43,7 +43,7 @@ const NavBar = () => {
       >
         <div className={styles.wrapper}>
           <Navbar className={styles.navBar} collapseOnSelect expand='lg'>
-            <Navbar.Brand className={styles.link} as={Link} to='/' href={"/"}>
+            <Navbar.Brand className={styles.link} as={Link} to='/' href='/'>
               Bernard Thompson
             </Navbar.Brand>
             <Navbar.Toggle
