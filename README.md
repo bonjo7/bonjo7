@@ -1,1 +1,0 @@
-# Bernard "Bonjo" Thompson
