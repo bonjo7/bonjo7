@@ -12,11 +12,13 @@ const Tech = () => {
             return (
               <div key={key} className={styles.listWrapper}>
                 <h5 className={styles.title}>{skill.title}</h5>
-                <ul>
-                  {skill.skill.map((s, key) => {
-                    return <li key={key}>{s}</li>;
-                  })}
-                </ul>
+                <div className={styles.listStyle}>
+                  <ul>
+                    {skill.skill.map((s, key) => {
+                      return <li key={key}>{s}</li>;
+                    })}
+                  </ul>
+                </div>
               </div>
             );
           })}
@@ -28,7 +30,8 @@ const Tech = () => {
             Throughout my role as an AppDev Consultant, I have been engaging
             with customers in order to build, refactor and maintain web and
             mobile applications that are built using ReactJS, HTML, CSS, Kotlin
-            and Swift while using NodeJS for backend applications while storing application data via mongoDB.
+            and Swift while using NodeJS for backend applications while storing
+            application data via mongoDB.
           </p>
           <p>
             These applications are then containerized and deployed on Red Hat

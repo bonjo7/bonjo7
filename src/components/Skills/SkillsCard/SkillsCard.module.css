@@ -5,50 +5,62 @@
   border-right: 1px solid #dee2e6;
 }
 
-.title{
-    color: #1d44b8;
+.title {
+  color: #1d44b8;
 }
 
-.listWrapper{
-   padding-left: 20px;
-   width: 25%;
+.listWrapper {
+  padding-left: 20px;
+  width: 25%;
 }
 
-.listSocialWrapper{
+.listSocialWrapper {
   padding-left: 20px;
   width: 33%;
 }
 
-ul{
-    list-style-type: none;
-    margin-left: -35px;
+.listStyle ul {
+  list-style-type: none;
 }
 
-.wrapper{
-    margin-top: -25px;
-    max-width: 100%;
-    display: flex;
-    flex-flow: row wrap;
+.listStyle ul li {
+  position: relative;
+}
+
+.listStyle ul li::before {
+  padding-right: 10px;
+  position: absolute;
+  left: -25px;
+  top: -15px;
+  font-size: 2em;
+  content: "\2022";
+  color: #1d44b8;
+}
+
+.wrapper {
+  margin-top: -25px;
+  max-width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.hr {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #d9dadb;
+  height: 1px;
+}
+
+.experience {
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 1029px) {
+  .listWrapper {
+    width: 50%;
   }
 
-  .hr{
-    margin-top: 20px;
-    width: 100%;               
-    background-color:#d9dadb;
-    height: 1px;
+  .listSocialWrapper {
+    width: 50%;
   }
-
-  .experience{
-    margin-top: 30px;
-  }
-
-  @media screen and (max-width: 1029px){
-    .listWrapper{
-        width: 50%;
-     }
-
-     .listSocialWrapper{
-      width: 50%;
-    }
-     
-  }
+}

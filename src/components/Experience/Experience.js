@@ -43,15 +43,15 @@ const Experience = () => {
                       return (
                         <div key={key} className={styles.wrapper}>
                           <div>
-                            <ul key={key}>
+                            <ul key={key} style={{ listStyleType: "none" }}>
                               <li
                                 key={key}
                                 style={{ fontStyle: "italic" }}
                               >{`${position.date}:`}</li>
                             </ul>
                           </div>
-                          <div className={styles.role}>
-                            <ul key={key}>
+                          <div>
+                            <ul key={key} style={{ listStyleType: "none" }}>
                               <li key={key} style={{ fontWeight: "bold" }}>
                                 {position.title}
                               </li>

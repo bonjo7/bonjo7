@@ -11,10 +11,6 @@
   flex-flow: row wrap;
 }
 
-.role {
-  margin-left: 5px;
-}
-
 .name {
   text-align: left !important;
   margin-left: 80px;
@@ -32,7 +28,7 @@
   list-style-type: disc;
 }
 
-.responsibilities ul{
+.responsibilities ul {
   margin-left: 10px;
 }
 
