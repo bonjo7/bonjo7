@@ -12,7 +12,7 @@ const Achievements = () => {
             return (
               <div key={key}>
                 <h5 className={styles.title}>{skill.title}</h5>
-                <ul style={{listStyleType: "square"}}>
+                <ul style={{ listStyleType: "square" }}>
                   {skill.skill.map((s, key) => {
                     return <li key={key}>{s}</li>;
                   })}

@@ -41,16 +41,17 @@ const Experience = () => {
                   <Card.Body>
                     {exp?.positionHeld?.map((position, key) => {
                       return (
-                        <div className={styles.wrapper}>
+                        <div key={key} className={styles.wrapper}>
                           <div>
-                            <ul>
-                              <li key={key}
+                            <ul key={key}>
+                              <li
+                                key={key}
                                 style={{ fontStyle: "italic" }}
                               >{`${position.date}:`}</li>
                             </ul>
                           </div>
                           <div className={styles.role}>
-                            <ul>
+                            <ul key={key}>
                               <li key={key} style={{ fontWeight: "bold" }}>
                                 {position.title}
                               </li>
@@ -64,7 +65,7 @@ const Experience = () => {
                     <div className={styles.responsibilities}>
                       {exp?.responsibilities?.map((responsibilities, key) => {
                         return (
-                          <ul>
+                          <ul key={key}>
                             <li key={key}>{responsibilities}</li>
                           </ul>
                         );
