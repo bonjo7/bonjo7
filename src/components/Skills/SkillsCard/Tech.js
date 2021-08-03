@@ -28,7 +28,7 @@ const Tech = () => {
             Throughout my role as an AppDev Consultant, I have been engaging
             with customers in order to build, refactor and maintain web and
             mobile applications that are built using ReactJS, HTML, CSS, Kotlin
-            and Swift while using NodeJS for backend applications.
+            and Swift while using NodeJS for backend applications while storing application data via mongoDB.
           </p>
           <p>
             These applications are then containerized and deployed on Red Hat

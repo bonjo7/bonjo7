@@ -4,7 +4,7 @@ import WaterfordAirport from "./images/Waterford-Airport.png";
 import DefenceForces from "./images/defence-forces.jpeg";
 import Musgraves from "./images/musgraves.png";
 import WIT from "./images/WIT-logo.jpeg";
-import ILM from "./images/ilm.png"
+import ILM from "./images/ilm.png";
 
 export const techSkills = [
   {
@@ -45,21 +45,44 @@ export const softSkills = [
   },
 ];
 
+export const achievementSkills = [
+  {
+    title: "Achievements",
+    skill: [
+      "Health and Safety Representative at Waterford Airport",
+      "Former President of the Ireland Dodgeball Association and Vice President of the European Dodgeball Federation",
+      "Completing third level education while working full time",
+      "Masterclass in time management & manging stress",
+      "Masterclass in cruial conversation",
+      "Masterclass in project management",
+    ],
+  },
+  {
+    title: "Interests",
+    skill: [
+      "In order to maintain a healthy lifestyle I like to run and cycle regurally",
+      "While my sporting days may be behind me I still have a very keen interst in hurling and dodgeball",
+      "I enjoying socialising while meeting new people",
+      "Volunteering as various community events such as, clean up events and stewarding at local community festivals",
+    ],
+  },
+];
+
 export const experienceData = [
   {
     id: 1,
     image: RedHat,
     companyName: "Red Hat",
     year: "January 2019 - Present",
-    positionHeld : [
+    positionHeld: [
       {
         date: "August 2020 – Present",
-        title: "Associate App Dev Consultant"
+        title: "Associate App Dev Consultant",
       },
       {
         date: "January 2019 – August 2020",
-        title: "Graduate App Dev Consultant"
-      }
+        title: "Graduate App Dev Consultant",
+      },
     ],
     address: "Red Hat, Communications House, Cork Road, Waterford, Ireland.",
     responsibilities: [
@@ -81,11 +104,11 @@ export const experienceData = [
     image: SE2,
     companyName: "SE2",
     year: "September 2018 -  December 2018",
-    positionHeld : [
+    positionHeld: [
       {
         date: "September 2018 – December 2018",
-        title: "Junior Robotics Processing Automation Engineer"
-      }
+        title: "Junior Robotics Processing Automation Engineer",
+      },
     ],
     address: "SE2, Killowen, Co. Waterford.",
     responsibilities: [
@@ -102,11 +125,12 @@ export const experienceData = [
     image: WaterfordAirport,
     companyName: "Waterford Airport",
     year: "April 2007 - April 2018",
-    positionHeld : [
+    positionHeld: [
       {
         date: "April 2007 - April 2018",
-        title: "Recruit Aviation Fire & Rescue/ Security Officer/ Operations Personnel"
-      }
+        title:
+          "Recruit Aviation Fire & Rescue/ Security Officer/ Operations Personnel",
+      },
     ],
     address: "Waterford Airport, Killowen, Co. Waterford.",
     responsibilities: [
@@ -128,11 +152,11 @@ export const experienceData = [
     image: DefenceForces,
     companyName: "Irish Defence Forces",
     year: "December 2006 - April 2007",
-    positionHeld : [
+    positionHeld: [
       {
         date: "December 2006 - April 2007",
-        title: "Recruit Soldier"
-      }
+        title: "Recruit Soldier",
+      },
     ],
     address:
       "Irish Defence Forces, Kickham Barracks, Waterford Road, Clonmel, Co.  Tipperary.",
@@ -148,11 +172,11 @@ export const experienceData = [
     image: Musgraves,
     companyName: "Musgraves Cash & Carry",
     year: "September 2001 - December 2006",
-    positionHeld : [
+    positionHeld: [
       {
         date: "September 2001 – December 2006",
-        title: "Warehouse/ Delivery Personnel"
-      }
+        title: "Warehouse/ Delivery Personnel",
+      },
     ],
     address: "Musgrave Cash & Carry, Keanes Road, Waterford.",
     responsibilities: [
@@ -177,7 +201,7 @@ export const educationData = [
     course: "Leadership & Management",
     year: "2019 - 2020",
     grade: "Level 3",
-    link: "https://www.credly.com/badges/a8bbedc6-efae-4e50-bbb1-67b93109f5c7"
+    link: "https://www.credly.com/badges/a8bbedc6-efae-4e50-bbb1-67b93109f5c7",
   },
   {
     id: 1,
@@ -186,7 +210,7 @@ export const educationData = [
     address: "Cork Road, Waterford, Ireland",
     course: "Higher Diplomia in Computer Science",
     year: "2018 - 2020",
-    grade: "First Class Honours"
+    grade: "First Class Honours",
   },
   {
     id: 2,
@@ -195,6 +219,6 @@ export const educationData = [
     address: "Cork Road, Waterford, Ireland",
     course: "Bachelor of Science in Information Technology",
     year: "2014 - 2017",
-    grade: "Pass with Distinction"
+    grade: "Pass with Distinction",
   },
 ];
