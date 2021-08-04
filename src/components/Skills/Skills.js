@@ -30,10 +30,12 @@ const Skills = () => {
 
   return (
     <>
-    <Breadcrumb>
-        <Link to='/'>Home</Link>
+      <Breadcrumb>
+        <li>
+          <Link to='/'>Home</Link>
+        </li>
         <Breadcrumb.Item active>
-          <span style={{ color: "#687078", marginLeft: "5px" }}>/ Skills</span>
+          <span style={{ color: "#687078", marginLeft: "5px" }}><h1 style={{fontSize: "16px", marginTop: "-21.5px", marginLeft: "5px"}}>/ Skills</h1></span>
         </Breadcrumb.Item>
       </Breadcrumb>
       <Nav
@@ -41,8 +43,7 @@ const Skills = () => {
         defaultActiveKey='tech-skills'
         aria-label='skills navigation'
         role='navigation'
-        style={{ marginBottom: "-13px" }}
-        id="landing-page"
+        id='landing-page'
       >
         {tabItems.map((item, key) => {
           return (
@@ -52,11 +53,7 @@ const Skills = () => {
                 eventKey={item.tabItem}
                 onClick={() => setTabItem(item.tabItem)}
               >
-                {tabItem === item.tabItem ? (
-                  <h1 style={{ fontSize: "16px" }}>{item.tabName}</h1>
-                ) : (
-                  <p>{item.tabName}</p>
-                )}
+                {item.tabName}
               </Nav.Link>
             </Nav.Item>
           );

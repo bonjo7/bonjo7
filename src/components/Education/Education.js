@@ -8,9 +8,13 @@ const Education = () => {
   return (
     <>
       <Breadcrumb>
-        <Link to='/'>Home</Link>
+        <li>
+          <Link to='/'>Home</Link>
+        </li>
         <Breadcrumb.Item active>
-          <span style={{ color: "#687078", marginLeft: "5px" }}>/ Education</span>
+          <span style={{ color: "#687078", marginLeft: "5px" }}>
+          <h1 style={{fontSize: "16px", marginTop: "-21.5px", marginLeft: "5px"}}>/ Education</h1>
+          </span>
         </Breadcrumb.Item>
       </Breadcrumb>
 

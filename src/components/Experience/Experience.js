@@ -7,7 +7,7 @@ import {
   Accordion,
   Card,
   Button,
-  Breadcrumb
+  Breadcrumb,
 } from "react-bootstrap";
 import { experienceData } from "../../data";
 import styles from "./Experience.module.css";
@@ -15,13 +15,22 @@ import styles from "./Experience.module.css";
 const Experience = () => {
   return (
     <>
-    <Breadcrumb>
-        <Link to='/'>Home</Link>
+      <Breadcrumb>
+        <li>
+          <Link to='/'>Home</Link>
+        </li>
         <Breadcrumb.Item active>
-          <span style={{ color: "#687078", marginLeft: "5px" }}>/ Experience</span>
+          <span style={{ color: "#687078", marginLeft: "10px" }}>
+            <h1 style={{fontSize: "16px", marginTop: "-21.5px", marginLeft: "5px"}}>/ Experience</h1>
+          </span>
         </Breadcrumb.Item>
       </Breadcrumb>
-      <Jumbotron fluid className={styles.background} role='main' id="landing-page">
+      <Jumbotron
+        fluid
+        className={styles.background}
+        role='main'
+        id='landing-page'
+      >
         <Container>
           <Accordion className={styles.accordian}>
             {experienceData.map((exp, key) => {
