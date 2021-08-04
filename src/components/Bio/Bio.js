@@ -9,7 +9,7 @@ const tel = "+353 87 137 7303";
 const Bio = () => {
   return (
     <>
-      <div className={styles.wrapper} role='main'>
+      <div className={styles.wrapper} role='main' id="landing-page">
         <img
           src={logo}
           className={styles.AppLogo}

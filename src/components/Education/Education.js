@@ -13,7 +13,7 @@ const Education = () => {
         </Breadcrumb.Item>
         <Breadcrumb.Item active>Education</Breadcrumb.Item>
       </Breadcrumb>
-      <Jumbotron fluid className={styles.background} role='main'>
+      <Jumbotron fluid className={styles.background} role='main' id="landing-page">
         <Container>
           {educationData.map((education, key) => {
             return (

@@ -27,3 +27,19 @@
   margin-top: 4rem;
   margin-bottom: 0rem;
 }
+
+.skipLink {
+  background: #fff;
+  height: 30px;
+  left: 40%;
+  padding: 8px;
+  position: absolute;
+  transform: translateY(-150%);
+  transition: transform 0.3s;
+  color: #1d44b8;
+}
+
+.skipLink:focus {
+  transform: translateY(0%);
+  z-index:99
+}

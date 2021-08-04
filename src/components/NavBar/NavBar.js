@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import { Navbar, Nav } from "react-bootstrap";
 import { List } from "phosphor-react";
 import AboutModal from "../Modals/AboutModal";
@@ -42,6 +42,10 @@ const NavBar = () => {
         aria-label='main navigation'
       >
         <div className={styles.wrapper}>
+          <Link className={styles.skipLink} to='#landing-page'>
+            {" "}
+            Skip to main content{" "}
+          </Link>
           <Navbar className={styles.navBar} collapseOnSelect expand='lg'>
             <Navbar.Brand className={styles.link} as={Link} to='/' href='/'>
               Bernard Thompson
