@@ -11,7 +11,7 @@ const Achievements = () => {
           {achievementSkills.map((skill, key) => {
             return (
               <div key={key}>
-                <h5 className={styles.title}>{skill.title}</h5>
+                <p className={styles.title}>{skill.title}</p>
                 <div className={styles.listStyle}>
                   <ul>
                     {skill.skill.map((s, key) => {

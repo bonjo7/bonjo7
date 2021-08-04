@@ -6,7 +6,9 @@
 }
 
 .title {
+  font-size: 20px;
   color: #1d44b8;
+  font-weight: bold;
 }
 
 .listWrapper {

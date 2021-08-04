@@ -12,7 +12,7 @@ const Social = () => {
             return (
               <div key={key} className={styles.listSocialWrapper}>
                 <div className={styles.listStyle}>
-                  <h5 className={styles.title}>{skill.title}</h5>
+                  <p className={styles.title}>{skill.title}</p>
                   <ul>
                     {skill.skill.map((s, key) => {
                       return <li key={key}>{s}</li>;
@@ -25,7 +25,7 @@ const Social = () => {
         </div>
         <hr className={styles.hr}></hr>
         <div className={styles.experience}>
-          <h5 className={styles.title}>Experience</h5>
+          <p className={styles.title}>Experience</p>
           <p>
             Prior and post my tech career I have had a number of opportunities
             to practice and enhance my leadership, organisational and time

@@ -11,7 +11,7 @@ const Tech = () => {
           {techSkills.map((skill, key) => {
             return (
               <div key={key} className={styles.listWrapper}>
-                <h5 className={styles.title}>{skill.title}</h5>
+                <p className={styles.title}>{skill.title}</p>
                 <div className={styles.listStyle}>
                   <ul>
                     {skill.skill.map((s, key) => {
@@ -25,7 +25,7 @@ const Tech = () => {
         </div>
         <hr className={styles.hr}></hr>
         <div className={styles.experience}>
-          <h5 className={styles.title}>Experience</h5>
+          <p className={styles.title}>Experience</p>
           <p>
             Throughout my role as an AppDev Consultant, I have been engaging
             with customers in order to build, refactor and maintain web and

@@ -39,7 +39,7 @@ const NavBar = () => {
         className={styles.fullWidth}
         role='navigation'
         id='navigation'
-        aria-label='navigation'
+        aria-label='main navigation'
       >
         <div className={styles.wrapper}>
           <Navbar className={styles.navBar} collapseOnSelect expand='lg'>

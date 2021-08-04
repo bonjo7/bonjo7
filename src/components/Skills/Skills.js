@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { useState } from "react";
 import styles from "./Skills.module.css";
 import Tech from "./SkillsCard/Tech";
@@ -8,41 +9,54 @@ import { Nav } from "react-bootstrap";
 const Skills = () => {
   const [tabItem, setTabItem] = useState("tech-skills");
 
+  const tabItems = [
+    {
+      id: 0,
+      tabItem: "tech-skills",
+      tabName: "Technical Skills",
+    },
+    {
+      id: 1,
+      tabItem: "personal-skills",
+      tabName: "Personal Skills",
+    },
+    {
+      id: 2,
+      tabItem: "achievements",
+      tabName: "Achievements & Interests",
+    },
+  ];
+
   return (
     <>
-      <Nav variant='tabs' defaultActiveKey='tech-skills'>
-        <Nav.Item>
-          <Nav.Link
-            className={styles.item}
-            eventKey='tech-skills'
-            onClick={() => setTabItem("tech-skills")}
-          >
-            Technical Skills
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link
-            className={styles.item}
-            eventKey='social-skills'
-            onClick={() => setTabItem("social-skills")}
-          >
-            Personal Skills
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link
-            className={styles.item}
-            eventKey='achievements'
-            onClick={() => setTabItem("achievements")}
-          >
-            Achievements & Interests
-          </Nav.Link>
-        </Nav.Item>
+      <Nav
+        variant='tabs'
+        defaultActiveKey='tech-skills'
+        aria-label='skills navigation'
+        role='navigation'
+      >
+        {tabItems.map((item, key) => {
+          return (
+            <Nav.Item key={key}>
+              <Nav.Link
+                className={styles.item}
+                eventKey={item.tabItem}
+                onClick={() => setTabItem(item.tabItem)}
+              >
+                {tabItem === item.tabItem ? (
+                  <h1 style={{ fontSize: "16px" }}>{item.tabName}</h1>
+                ) : (
+                  <p>{item.tabName}</p>
+                )}
+              </Nav.Link>
+            </Nav.Item>
+          );
+        })}
       </Nav>
       <div>
         {tabItem === "tech-skills" ? (
           <Tech />
-        ) : tabItem === "social-skills" ? (
+        ) : tabItem === "personal-skills" ? (
           <Social />
         ) : (
           <Achievements />
