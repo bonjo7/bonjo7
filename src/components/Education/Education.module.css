@@ -5,6 +5,14 @@
   border-right: 1px solid #dee2e6;
 }
 
+ol{
+  background-color: transparent !important;
+}
+
+ol a {
+  color: #1d44b8 !important;
+}
+
 .wrapper {
   text-align: left;
   display: flex;
