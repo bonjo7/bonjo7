@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { CaretDown } from "phosphor-react";
 import {
   Jumbotron,
@@ -7,7 +6,6 @@ import {
   Accordion,
   Card,
   Button,
-  Breadcrumb,
 } from "react-bootstrap";
 import { experienceData } from "../../data";
 import styles from "./Experience.module.css";
@@ -15,12 +13,6 @@ import styles from "./Experience.module.css";
 const Experience = () => {
   return (
     <>
-      <Breadcrumb>
-        <Breadcrumb.Item as={Link} to='/' href='/'>
-          Home
-        </Breadcrumb.Item>
-        <Breadcrumb.Item active>Experience</Breadcrumb.Item>
-      </Breadcrumb>
       <Jumbotron fluid className={styles.background} role='main' id="landing-page">
         <Container>
           <Accordion className={styles.accordian}>

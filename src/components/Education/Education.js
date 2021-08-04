@@ -1,19 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Jumbotron, Container, Card, Breadcrumb } from "react-bootstrap";
+import { Jumbotron, Container, Card } from "react-bootstrap";
 import { educationData } from "../../data";
 import styles from "./Education.module.css";
 
 const Education = () => {
   return (
     <>
-      <Breadcrumb>
-        <Breadcrumb.Item as={Link} to='/' href='/'>
-          Home
-        </Breadcrumb.Item>
-        <Breadcrumb.Item active>Education</Breadcrumb.Item>
-      </Breadcrumb>
-      <Jumbotron fluid className={styles.background} role='main' id="landing-page">
+      <Jumbotron
+        fluid
+        className={styles.background}
+        role='main'
+        id='landing-page'
+      >
         <Container>
           {educationData.map((education, key) => {
             return (
