@@ -1,10 +1,11 @@
 /* eslint-disable array-callback-return */
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Skills.module.css";
 import Tech from "./SkillsCard/Tech";
 import Social from "./SkillsCard/Social";
 import Achievements from "./SkillsCard/Achievements";
-import { Nav } from "react-bootstrap";
+import { Nav, Breadcrumb } from "react-bootstrap";
 
 const Skills = () => {
   const [tabItem, setTabItem] = useState("tech-skills");
@@ -29,6 +30,12 @@ const Skills = () => {
 
   return (
     <>
+    <Breadcrumb>
+        <Link to='/'>Home</Link>
+        <Breadcrumb.Item active>
+          <span style={{ color: "#687078", marginLeft: "5px" }}>/ Skills</span>
+        </Breadcrumb.Item>
+      </Breadcrumb>
       <Nav
         variant='tabs'
         defaultActiveKey='tech-skills'

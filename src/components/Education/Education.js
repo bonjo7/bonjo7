@@ -1,11 +1,19 @@
 import React from "react";
-import { Jumbotron, Container, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { Jumbotron, Container, Card, Breadcrumb } from "react-bootstrap";
 import { educationData } from "../../data";
 import styles from "./Education.module.css";
 
 const Education = () => {
   return (
     <>
+      <Breadcrumb>
+        <Link to='/'>Home</Link>
+        <Breadcrumb.Item active>
+          <span style={{ color: "#687078", marginLeft: "5px" }}>/ Education</span>
+        </Breadcrumb.Item>
+      </Breadcrumb>
+
       <Jumbotron
         fluid
         className={styles.background}
