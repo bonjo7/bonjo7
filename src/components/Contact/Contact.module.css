@@ -32,3 +32,15 @@
   .socialComponent{
     margin-top: 20px;
   }
+
+  @media screen and (max-width:400px) {
+    .socialIcon{
+      padding: 8px;
+    }
+  }
+
+  @media screen and (max-width:290px) {
+    .socialIcon{
+      padding: 5px;
+    }
+  }
