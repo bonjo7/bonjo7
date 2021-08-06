@@ -21,7 +21,15 @@ const Experience = () => {
         </li>
         <Breadcrumb.Item active>
           <span style={{ color: "#687078", marginLeft: "10px" }}>
-            <h1 style={{fontSize: "16px", marginTop: "-21.5px", marginLeft: "5px"}}>/ Experience</h1>
+            <h1
+              style={{
+                fontSize: "16px",
+                marginTop: "-21.5px",
+                marginLeft: "5px",
+              }}
+            >
+              / Experience
+            </h1>
           </span>
         </Breadcrumb.Item>
       </Breadcrumb>

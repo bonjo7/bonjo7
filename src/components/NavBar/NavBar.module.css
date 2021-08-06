@@ -1,7 +1,8 @@
 .fullWidth,
 .navBar {
   background-color: #1d44b8;
-  padding: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .link {

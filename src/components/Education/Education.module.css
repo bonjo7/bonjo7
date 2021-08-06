@@ -29,6 +29,10 @@ ol a {
   height: 150px;
 }
 
+.textWrapper{
+  width: 60%;
+}
+
 .imgWrapper {
   margin-top: -20px;
 }
@@ -42,4 +46,21 @@ ol a {
 .cardText {
   margin-bottom: 5px !important;
   font-size: 15px;
+}
+
+@media screen and (max-width: 840px) {
+  .wrapper {
+    text-align: center;
+  }
+
+  .imgWrapper{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .textWrapper{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
 }

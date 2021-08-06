@@ -37,6 +37,7 @@ const Education = () => {
                         alt={`${education.name}s logo`}
                       />
                     </div>
+                    <div className={styles.textWrapper}>
                     <Card.Title>
                       {education.course}
                       <Card.Text className={styles.grade}>
@@ -66,6 +67,7 @@ const Education = () => {
                         )}
                       </Card.Text>
                     </Card.Title>
+                    </div>
                   </div>
                 </Card.Body>
               </Card>

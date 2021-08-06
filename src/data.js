@@ -20,7 +20,7 @@ export const techSkills = [
     skill: ["ReactJS", "Angular", "Native Android", "Native iOS"],
   },
   {
-    title: "Container technologies",
+    title: "Container Technologies",
     skill: ["Podman", "Docker", "Jenkins Pipelines (CI/CD)", "Openshift"],
   },
 ];

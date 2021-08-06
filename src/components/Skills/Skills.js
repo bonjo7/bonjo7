@@ -44,6 +44,7 @@ const Skills = () => {
         aria-label='skills navigation'
         role='navigation'
         id='landing-page'
+        className={styles.navResponse}
       >
         {tabItems.map((item, key) => {
           return (
