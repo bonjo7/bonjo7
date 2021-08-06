@@ -57,7 +57,7 @@ const AboutModal = ({ show, handleClose }) => {
           <p>Version 1.0.0</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant='secondary' onClick={handleClose}>
+          <Button aria-label="Close modal button" variant='secondary' onClick={handleClose}>
             Close
           </Button>
         </Modal.Footer>
