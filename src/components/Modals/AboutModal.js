@@ -1,5 +1,7 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
+import {version} from '../../../package.json';
+
 
 const AboutModal = ({ show, handleClose }) => {
   const modalInfo = `This online profile was created using - \n ReactJS \n v17.0.2 \n React Bootstrap \n v1.6.1 \n If you like what you see feel free to fork the project at`;
@@ -54,7 +56,7 @@ const AboutModal = ({ show, handleClose }) => {
               https://github.com/bonjo7/bonjo7
             </a>
           </p>
-          <p>Version 1.0.0</p>
+          <p>Version {version}</p>
         </Modal.Body>
         <Modal.Footer>
           <Button aria-label="Close modal button" variant='secondary' onClick={handleClose}>

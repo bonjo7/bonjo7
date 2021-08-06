@@ -77,11 +77,11 @@ export const experienceData = [
     positionHeld: [
       {
         date: "August 2020 – Present",
-        title: "Associate App Dev Consultant",
+        title: "Associate Consultant",
       },
       {
         date: "January 2019 – August 2020",
-        title: "Graduate App Dev Consultant",
+        title: "Graduate Consultant",
       },
     ],
     address: "Red Hat, Communications House, Cork Road, Waterford, Ireland.",
