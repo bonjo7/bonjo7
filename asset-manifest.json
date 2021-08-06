@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/bonjo7/static/css/main.a4ad593c.chunk.css",
-    "main.js": "/bonjo7/static/js/main.4f1f0016.chunk.js",
-    "main.js.map": "/bonjo7/static/js/main.4f1f0016.chunk.js.map",
-    "runtime-main.js": "/bonjo7/static/js/runtime-main.ecfdae1d.js",
-    "runtime-main.js.map": "/bonjo7/static/js/runtime-main.ecfdae1d.js.map",
+    "main.js": "/bonjo7/static/js/main.8adfe2b5.chunk.js",
+    "main.js.map": "/bonjo7/static/js/main.8adfe2b5.chunk.js.map",
+    "runtime-main.js": "/bonjo7/static/js/runtime-main.11daf26a.js",
+    "runtime-main.js.map": "/bonjo7/static/js/runtime-main.11daf26a.js.map",
     "static/css/2.4c97ca4f.chunk.css": "/bonjo7/static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.3bd186bf.chunk.js": "/bonjo7/static/js/2.3bd186bf.chunk.js",
-    "static/js/2.3bd186bf.chunk.js.map": "/bonjo7/static/js/2.3bd186bf.chunk.js.map",
-    "static/js/3.11158243.chunk.js": "/bonjo7/static/js/3.11158243.chunk.js",
-    "static/js/3.11158243.chunk.js.map": "/bonjo7/static/js/3.11158243.chunk.js.map",
+    "static/js/2.14527453.chunk.js": "/bonjo7/static/js/2.14527453.chunk.js",
+    "static/js/2.14527453.chunk.js.map": "/bonjo7/static/js/2.14527453.chunk.js.map",
+    "static/js/3.ff996994.chunk.js": "/bonjo7/static/js/3.ff996994.chunk.js",
+    "static/js/3.ff996994.chunk.js.map": "/bonjo7/static/js/3.ff996994.chunk.js.map",
     "index.html": "/bonjo7/index.html",
     "static/css/2.4c97ca4f.chunk.css.map": "/bonjo7/static/css/2.4c97ca4f.chunk.css.map",
     "static/css/main.a4ad593c.chunk.css.map": "/bonjo7/static/css/main.a4ad593c.chunk.css.map",
-    "static/js/2.3bd186bf.chunk.js.LICENSE.txt": "/bonjo7/static/js/2.3bd186bf.chunk.js.LICENSE.txt",
+    "static/js/2.14527453.chunk.js.LICENSE.txt": "/bonjo7/static/js/2.14527453.chunk.js.LICENSE.txt",
     "static/media/WIT-logo.0d2484b9.jpeg": "/bonjo7/static/media/WIT-logo.0d2484b9.jpeg",
     "static/media/Waterford-Airport.c66d4c67.png": "/bonjo7/static/media/Waterford-Airport.c66d4c67.png",
     "static/media/defence-forces.17f3dc7b.jpeg": "/bonjo7/static/media/defence-forces.17f3dc7b.jpeg",
@@ -22,10 +22,10 @@
     "static/media/prime.057104e0.png": "/bonjo7/static/media/prime.057104e0.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.ecfdae1d.js",
+    "static/js/runtime-main.11daf26a.js",
     "static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.3bd186bf.chunk.js",
+    "static/js/2.14527453.chunk.js",
     "static/css/main.a4ad593c.chunk.css",
-    "static/js/main.4f1f0016.chunk.js"
+    "static/js/main.8adfe2b5.chunk.js"
   ]
 }
