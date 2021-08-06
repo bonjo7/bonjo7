@@ -27,14 +27,13 @@ const Social = () => {
         <div className={styles.experience}>
           <p className={styles.title}>Experience</p>
           <p>
-            Prior and post my tech career I have had a number of opportunities
-            to practice and enhance my leadership, organisational and time
-            management skills. I completed my BSc in Information Technology and
-            HDip in computer science part time (by night) while also working
-            full time. This required me to organise, prioritise and manage my
-            time to ensure I could complete both courses to the highest standard
-            while also fulfilling my work and allowing time to spend with my
-            family.
+            I have had a number of opportunities to practice and enhance my
+            leadership, organisational and time management skills. I completed
+            my BSc in Information Technology and HDip in computer science part
+            time (by night) while also working full time. This required me to
+            organise, prioritise and manage my time to ensure I could complete
+            both courses to the highest standard while also fulfilling my work
+            and allowing time to spend with my family.
           </p>
           <p>
             Throughout my career I have shown the ability to multitask and

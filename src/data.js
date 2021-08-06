@@ -90,7 +90,7 @@ export const experienceData = [
       "Working with modern application development practices and evaluate existing applications to update and add new features.",
       "Assist with technical and non-technical project-related activities.",
       "Work closely with my colleagues in a collaborative team environment to meet timelines and goals and share information at all opportunities.",
-      "Build and maintain collaborative relationships with my colleagues and out customers.",
+      "Build and maintain collaborative relationships with my colleagues and our customers.",
       "Using critical thinking skills to tackle through problems in an innovative way.",
       "Understand customers’ requirements and how they translate to application features.",
       "Write high quality source code to create applications within deadlines.",
@@ -136,7 +136,7 @@ export const experienceData = [
     responsibilities: [
       "Servicing of fire appliances and equipment.",
       "Ongoing fire training as directed by the officer in charge.",
-      "Screening of passengers, luggage and freight..",
+      "Screening of passengers, luggage and freight.",
       "Security patrols on a regular basis.",
       "Liaising with Immigration and Customs.",
       "Quality control of aviation fuel.",
