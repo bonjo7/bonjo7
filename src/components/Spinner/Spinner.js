@@ -1,18 +1,19 @@
 import React from "react";
 import { Spinner } from "react-bootstrap";
+import styles from "./Spinner.module.css";
 
 const SpinnerComponent = () => {
   return (
-    <Spinner
-      animation='border'
-      style={{
-        color: "#1d44b8",
-        marginLeft: "42%",
-        verticalAlign: "middle",
-        width: "100px",
-        height: "100px",
-      }}
-    ></Spinner>
+    <div className={styles.spinnerWrapper}>
+      <Spinner
+        animation='border'
+        style={{
+          color: "#1d44b8",
+          width: "100px",
+          height: "100px",
+        }}
+      ></Spinner>
+    </div>
   );
 };
 
