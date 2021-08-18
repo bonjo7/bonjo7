@@ -5,6 +5,7 @@ import Skills from "./components/Skills/Skills";
 import Experience from "./components/Experience/Experience";
 import Education from "./components/Education/Education"
 import NavBar from "./components/NavBar/NavBar";
+import Test from "./components/Education/UploadEducation";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -19,6 +20,9 @@ const App = () => {
         <Route exact path='/skills' component={Skills} />
         <Route exact path='/experience' component={Experience} />
         <Route exact path='/education' component={Education} />
+        
+        {/* Routes below to become protected routes */}
+        <Route exact path='/uploadEducation' component={Test} />
         </div>
         </div>
       </Router>
