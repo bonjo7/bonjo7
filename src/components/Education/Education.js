@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { Jumbotron, Container, Card, Breadcrumb } from "react-bootstrap";
 import { educationData } from "../../data";
@@ -7,10 +8,21 @@ import styles from "./Education.module.css";
 
 const Education = () => {
   const [loading, setLoading] = useState(false);
+  const [education, setEducation] = useState({ educationList: [] });
+  const baseURL = "http://localhost:8080";
+
+  const getData = async () => {
+    setLoading(true);
+    try {
+      await axios.get(`${baseURL}/api`).then((res) => {setEducation(res.data)});
+    } catch (error) {
+      console.log("Error getting data - ", error);
+    }
+  };
 
   useEffect(() => {
-    setLoading(true);
-    setTimeout(() => setLoading(false), 500);
+    getData();
+    setLoading(false);
   }, []);
 
   return (

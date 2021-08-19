@@ -34,7 +34,7 @@ const Test = () => {
     ref.current.value = "";
     
     await axios
-      .post(`${baseURL}/api/image`, completeFormData)
+      .post(`${baseURL}/api`, completeFormData)
       .then((res) => console.log("res - ", res))
       .catch((err) => console.log("error - ", err));
 
