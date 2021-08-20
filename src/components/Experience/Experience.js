@@ -1,14 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { CaretDown } from "phosphor-react";
-import {
-  Jumbotron,
-  Container,
-  Accordion,
-  Card,
-  Button,
-  Breadcrumb,
-} from "react-bootstrap";
+import { Jumbotron, Container, Accordion, Card, Button } from "react-bootstrap";
+import Breadcrumbs from "../Breadcrumb/Breadcrumbs";
 import Spinner from "../Spinner/Spinner";
 import { experienceData } from "../../data";
 import styles from "./Experience.module.css";
@@ -22,24 +15,7 @@ const Experience = () => {
   }, []);
   return (
     <>
-      <Breadcrumb>
-        <li>
-          <Link to='/'>Home</Link>
-        </li>
-        <Breadcrumb.Item active>
-          <span style={{ color: "#687078", marginLeft: "10px" }}>
-            <h1
-              style={{
-                fontSize: "16px",
-                marginTop: "-21.5px",
-                marginLeft: "5px",
-              }}
-            >
-              / Experience
-            </h1>
-          </span>
-        </Breadcrumb.Item>
-      </Breadcrumb>
+      <Breadcrumbs currentPage='Experience' />
       <Jumbotron
         fluid
         className={styles.background}

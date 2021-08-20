@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
+import UseEducation from "../../Hooks/EducationHook";
+import Spinner from "../Spinner/Spinner";
 import { Form, Button } from "react-bootstrap";
-import axios from "axios";
 
 const Test = () => {
-  const baseURL = "http://localhost:8080";
   const ref = useRef();
   const [fileData, setFileData] = useState();
   const [formData, setFormData] = useState({
@@ -11,19 +11,21 @@ const Test = () => {
     course: "",
     year: "",
     grade: "",
-    link: ""  
+    link: "",
   });
+  const { loading, postEducationData } = UseEducation();
+
+  useEffect(() => {}, [loading]);
 
   const onChange = (e) => {
-    setFormData({...formData, [e.target.name]: e.target.value})
-  }
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleFilechange = (e) => {
     setFileData(e.target.files[0]);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault(e);
+  const generateFormDataForUpload = () => {
     const completeFormData = new FormData();
     completeFormData.append("name", formData.name);
     completeFormData.append("course", formData.course);
@@ -31,21 +33,28 @@ const Test = () => {
     completeFormData.append("grade", formData.grade);
     completeFormData.append("link", formData.link);
     completeFormData.append("image", fileData);
-    ref.current.value = "";
-    
-    await axios
-      .post(`${baseURL}/api`, completeFormData)
-      .then((res) => console.log("res - ", res))
-      .catch((err) => console.log("error - ", err));
 
+    postEducationData(completeFormData);
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(e);
+    generateFormDataForUpload();
+    ref.current.value = "";
+  };
+
+  console.log(loading);
 
   return (
     <>
+    {loading ? (
+          <Spinner />
+        ) : (
+          <>
       <Form.Group className='mb-3' controlId='formBasicEmail'>
         <Form.Label>Institute Name</Form.Label>
         <Form.Control
-          name="name"
+          name='name'
           type='text'
           placeholder='Enter institute name'
           onChange={(e) => onChange(e)}
@@ -58,7 +67,7 @@ const Test = () => {
       <Form.Group className='mb-3' controlId='formBasicEmail'>
         <Form.Label>Course Title</Form.Label>
         <Form.Control
-          name="course"
+          name='course'
           type='text'
           placeholder='Enter course title'
           onChange={(e) => onChange(e)}
@@ -71,7 +80,7 @@ const Test = () => {
       <Form.Group className='mb-3' controlId='formBasicEmail'>
         <Form.Label>Year(s)</Form.Label>
         <Form.Control
-          name="year"
+          name='year'
           type='text'
           placeholder='Enter year as yyyy - yyyy'
           onChange={(e) => onChange(e)}
@@ -82,7 +91,7 @@ const Test = () => {
       <Form.Group className='mb-3' controlId='formBasicEmail'>
         <Form.Label>Grade</Form.Label>
         <Form.Control
-          name="grade"
+          name='grade'
           type='text'
           placeholder='Enter grade'
           onChange={(e) => onChange(e)}
@@ -93,7 +102,7 @@ const Test = () => {
       <Form.Group className='mb-3' controlId='formBasicEmail'>
         <Form.Label>Link to certificate</Form.Label>
         <Form.Control
-          name="link"
+          name='link'
           type='text'
           placeholder='Enter link to certificiate'
           onChange={(e) => onChange(e)}
@@ -118,6 +127,8 @@ const Test = () => {
       <Button variant='primary' onClick={handleSubmit}>
         Submit
       </Button>
+      </>
+        )}
     </>
   );
 };
