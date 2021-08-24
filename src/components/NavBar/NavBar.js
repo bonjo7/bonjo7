@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import { useAuth } from "../../Hooks/AuthContext";
 import { HashLink as Link } from "react-router-hash-link";
+import { useHistory } from "react-router-dom";
+import { User, SignOut } from "phosphor-react";
 import { Navbar, Nav } from "react-bootstrap";
 import { List } from "phosphor-react";
 import AboutModal from "../Modals/AboutModal";
@@ -24,11 +27,20 @@ const navItems = [
 ];
 
 const NavBar = () => {
+  const { currentUser, setCurrentUser } = useAuth();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
+  const history = useHistory();
 
   const handleShow = () => {
     setShow(true);
+  };
+
+  const logout = async (e) => {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.clear();
+    setCurrentUser(null);
+    history.push("/");
   };
 
   return (
@@ -76,12 +88,22 @@ const NavBar = () => {
                     </Nav.Link>
                   );
                 })}
-                <Nav.Link
-                  key='000123'
-                  className={styles.link}
-                  onClick={handleShow}
-                >
+                <Nav.Link key='3' className={styles.link} onClick={handleShow}>
                   About
+                </Nav.Link>
+                <Nav.Link
+                  key='4'
+                  className={styles.link}
+                  as={Link}
+                  to='/login'
+                  href='/login'
+                  onClick={logout}
+                >
+                  {currentUser ? (
+                    <SignOut size={20} color='#ffffff' />
+                  ) : (
+                    <User size={20} color='#ffffff' />
+                  )}
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
