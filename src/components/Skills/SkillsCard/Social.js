@@ -50,10 +50,16 @@ const Social = () => {
               Throughout my career I have shown the ability to multitask and
               prioritise my work. During my time at Waterford Airport I was
               involved in a number of different roles to ensure the safe arrival
-              and departure of aircraft. Throughout my time at Red Hat I have
-              had to work on multiple projects at one time where I would be
-              required to prioritise and re prioritise my work based on customer
-              needs and expectations.
+              and departure of aircraft. In my role at Red Hat I work on
+              multiple projects at one time where I am required to prioritise
+              and re prioritise my work based on customer needs and
+              expectations.
+            </p>
+            <p>
+              I handle these customer expectations by using agile practices such
+              as and not limited to, iterative development, attending daily scum
+              meetings, sprint planning sessions, sprint retrospective's,
+              customer demonstrations.
             </p>
           </div>
         </Container>

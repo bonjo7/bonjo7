@@ -9,6 +9,9 @@ const UseRoutes = () => {
   const history = useHistory();
   const [loading, setLoading] = useState(false);
   const [education, setEducation] = useState([]);
+  const [error, setError] = useState(null);
+  const [errorStatus, setErrorStatus] = useState(null);
+  const [show, setShow] = useState(false);
 
   const getEducationData = async () => {
     setLoading(true);
@@ -17,41 +20,54 @@ const UseRoutes = () => {
         setEducation(res.data);
         setLoading(false);
       });
-    } catch (error) {
-      console.log("Error getting data - ", error);
+    } catch (err) {
+      setLoading(false);
+      setErrorStatus(err.response.data.status);
+      setError(err.response.data.message);
     }
   };
 
   const postEducationData = async (completeFormData) => {
     const config = {
-      headers: { "Content-Type": "application/json",
-      "TOKEN_KEY": localStorage.getItem("TOKEN_KEY"),
-      "token": localStorage.getItem("token"),},
+      headers: {
+        "Content-Type": "application/json",
+        TOKEN_KEY: localStorage.getItem("TOKEN_KEY"),
+        token: localStorage.getItem("token"),
+      },
     };
-  
+
     setLoading(true);
-    await axios
-      .post(`${baseURL}/education`, completeFormData, config)
-      .then((res) => {
-        console.log("res - ", res);
-        setLoading(false);
-      })
-      .catch((err) => console.log("error - ", err));
+    try {
+      await axios
+        .post(`${baseURL}/education`, completeFormData, config)
+        .then((res) => {
+          setLoading(false);
+        });
+    } catch (err) {
+      setErrorStatus(err.response.data.status);
+      setError(err.response.data.message);
+      setLoading(false);
+    }
   };
 
   const loginUser = async (credentials) => {
-    
-    await axios
-      .post(`${baseURL}/user/login`, credentials)
-      .then((res) => {
+    setLoading(true);
+    try {
+      await axios.post(`${baseURL}/user/login`, credentials).then((res) => {
+        setLoading(false);
         localStorage.setItem("isLoggedIn", "true");
         localStorage.setItem("user", res.data.username);
-        localStorage.setItem("token", res.data.token)
-        localStorage.setItem("TOKEN_KEY", res.data.TOKEN_KEY)
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("TOKEN_KEY", res.data.TOKEN_KEY);
         setCurrentUser(res.data);
         history.push("/uploadEducation");
-      })
-      .catch((err) => console.log("error - ", err));
+      });
+    } catch (err) {
+      setLoading(false);
+      setShow(true);
+      setErrorStatus(err.response.data.status);
+      setError(err.response.data.message);
+    }
   };
 
   return {
@@ -61,6 +77,10 @@ const UseRoutes = () => {
     getEducationData,
     postEducationData,
     loginUser,
+    error,
+    errorStatus,
+    show,
+    setShow,
   };
 };
 
