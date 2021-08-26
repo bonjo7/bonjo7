@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAuth } from "../../Hooks/AuthContext";
 import { HashLink as Link } from "react-router-hash-link";
 import { useHistory } from "react-router-dom";
-import { User, SignOut } from "phosphor-react";
+import { User, SignOut, FilePlus } from "phosphor-react";
 import { Navbar, Nav } from "react-bootstrap";
 import { List } from "phosphor-react";
 import AboutModal from "../Modals/AboutModal";
@@ -91,8 +91,17 @@ const NavBar = () => {
                 <Nav.Link key='3' className={styles.link} onClick={handleShow}>
                   About
                 </Nav.Link>
+                {currentUser && <Nav.Link
+                key='4'
+                className={styles.link}
+                as={Link}
+                to='/settings'
+                href='/settings'
+                >
+                  <FilePlus size={20} color="#ffffff" />
+                  </Nav.Link>}
                 <Nav.Link
-                  key='4'
+                  key='5'
                   className={styles.link}
                   as={Link}
                   to='/login'

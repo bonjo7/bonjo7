@@ -4,11 +4,12 @@ import axios from "axios";
 import { useAuth } from "./AuthContext";
 
 const UseRoutes = () => {
-  const baseURL = "https://bonjo-profile-backend.herokuapp.com";
+  const baseURL = "http://localhost:8080";
   const { setCurrentUser } = useAuth();
   const history = useHistory();
   const [loading, setLoading] = useState(false);
   const [education, setEducation] = useState([]);
+  const [experience, setExperience] = useState([]);
   const [error, setError] = useState(null);
   const [errorStatus, setErrorStatus] = useState(null);
   const [show, setShow] = useState(false);
@@ -59,14 +60,52 @@ const UseRoutes = () => {
         localStorage.setItem("user", res.data.username);
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("TOKEN_KEY", res.data.TOKEN_KEY);
-        setCurrentUser(res.data);
-        history.push("/uploadEducation");
+        setCurrentUser(res.data.username);
+        history.push("/settings");
       });
     } catch (err) {
       setLoading(false);
       setShow(true);
       setErrorStatus(err.response.data.status);
       setError(err.response.data.message);
+    }
+  };
+
+  const postExperienceData = async (completeFormData, position) => {
+    const config = {
+      headers: {
+        
+        TOKEN_KEY: localStorage.getItem("TOKEN_KEY"),
+        token: localStorage.getItem("token"),
+      },
+    };
+
+    setLoading(true);
+    try {
+      await axios
+        .post(`${baseURL}/experience`, completeFormData, config)
+        .then((res) => {
+          setLoading(false);
+        });
+    } catch (err) {
+      setErrorStatus(err.response.data.status);
+      setError(err.response.data.message);
+      setLoading(false);
+    }
+  };
+
+  const getExperienceData = async () => {
+    setLoading(true);
+    try {
+      await axios.get(`${baseURL}/experience`).then((res) => {
+        setExperience(res.data);
+        setLoading(false);
+      });
+    } catch (err) {
+      setLoading(false);
+      console.log(err)
+      // setErrorStatus(err.response.data.status);
+      // setError(err.response.data.message);
     }
   };
 
@@ -81,6 +120,9 @@ const UseRoutes = () => {
     errorStatus,
     show,
     setShow,
+    postExperienceData,
+    getExperienceData,
+    experience
   };
 };
 

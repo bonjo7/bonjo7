@@ -6,7 +6,7 @@ import Skills from "./components/Skills/Skills";
 import Experience from "./components/Experience/Experience";
 import Education from "./components/Education/Education";
 import NavBar from "./components/NavBar/NavBar";
-import UploadEducation from "./components/Education/UploadEducation";
+import Settings from "./components/SettingsEdit/Settings";
 import Login from "./components/Login/Login";
 import PrivateRoute from "./Hooks/PrivateRoute";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -30,8 +30,8 @@ const App = () => {
               {/* Routes below to become protected routes */}
               <PrivateRoute
                 exact
-                path='/uploadEducation'
-                component={UploadEducation}
+                path='/settings'
+                component={Settings}
               />
             </Switch>
           </div>
