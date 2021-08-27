@@ -1,15 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Jumbotron, Container, Card } from "react-bootstrap";
 import Breadcrumbs from "../Breadcrumb/Breadcrumbs";
 import UseRoutes from "../../Hooks/RoutesHook";
+import { educationData } from "../../data";
 import Spinner from "../Spinner/Spinner";
 import styles from "./Education.module.css";
 
 const Education = () => {
-  const { loading, education, getEducationData } = UseRoutes();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    getEducationData();
+    setLoading(true);
+    setTimeout(() => setLoading(false), 500);
   }, []);
 
   return (
@@ -25,7 +27,7 @@ const Education = () => {
           <Spinner />
         ) : (
           <Container>
-            {education?.map((education, key) => {
+            {educationData?.map((education, key) => {
               return (
                 <Card key={key} className={styles.card}>
                   <Card.Body>
