@@ -45,6 +45,12 @@ const Tech = () => {
               application data via mongoDB.
             </p>
             <p>
+              The work requires to refactor older applications ensuring they
+              conform with accessibility standards. Adding new and enhancing
+              current features, while also documenting application functionality
+              while ensuring the customer needs are always meet.
+            </p>
+            <p>
               These applications are then containerized and deployed on Red Hat
               OpenShift using CI/CD Jenkins pipelines which deploy the
               applications across various environments.
