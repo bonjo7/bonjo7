@@ -28,17 +28,37 @@ const UploadExpereince = () => {
     setFileData(e.target.files[0]);
   };
 
+  let positionArray = [];
+  let positionHeldTitle;
+  let positionHeldYear;
+
+  const onChnagePostion = (e) => {
+    e.preventDefault(e);
+    if ((e.target.name = "positionHeldYear")) {
+      positionHeldYear = e.target.value;
+    }
+    if ((e.target.name = "positionHeldTitle")) {
+      positionHeldTitle = e.target.value;
+    }
+  };
+
+  const addPosition = (e) => {
+    e.preventDefault(e);
+    positionArray.push({ positionHeldYear, positionHeldTitle });
+  };
+
   const generateFormDataForUpload = () => {
+    console.log(positionArray);
     const completeFormData = new FormData();
     completeFormData.append("companyName", formData.companyName);
     completeFormData.append("year", formData.year);
-    completeFormData.append("positionHeld", formData.positionHeld);
+    completeFormData.append("positionHeld", JSON.stringify(positionArray));
     completeFormData.append("address", formData.address);
     completeFormData.append("responsibilities", formData.responsibilities);
     completeFormData.append("image", fileData);
 
-    console.log(formData)
-    // postExperienceData(completeFormData);
+    // console.log(formData)
+    postExperienceData(completeFormData);
   };
 
   const handleSubmit = async (e) => {
@@ -77,33 +97,6 @@ const UploadExpereince = () => {
             </Form.Text>
           </Form.Group>
 
-          <Form.Group className='mb-3' controlId='formBasicEmail'></Form.Group>
-          <Row>
-            <Col>
-              <Form.Label>Year(s) Position Held</Form.Label>
-              <Form.Control
-                name='positionHeldYear'
-                type='text'
-                placeholder='Enter year(s) you held this position'
-                onChange={(e) => onChange(e)}
-              />
-              <Form.Text className='text-muted'>
-                eg. January 2019 – August 2020
-              </Form.Text>
-            </Col>
-            <Col>
-              <Form.Label>Title Position Held</Form.Label>
-              <Form.Control
-                name='positionHeldTitle'
-                type='text'
-                placeholder='Enter position(s) held'
-                onChange={(e) => onChange(e)}
-              />
-              <Form.Text className='text-muted'>
-                eg. Associate Developer
-              </Form.Text>
-            </Col>
-          </Row>
           <Form.Group className='mb-3' controlId='formBasicEmail'>
             <Form.Label>Company Address</Form.Label>
             <Form.Control
@@ -143,6 +136,37 @@ const UploadExpereince = () => {
               ref={ref}
             />
           </Form.Group>
+
+          <Form.Group className='mb-3' controlId='formBasicEmail'></Form.Group>
+          <Row>
+            <Col>
+              <Form.Label>Year(s) Position Held</Form.Label>
+              <Form.Control
+                name='positionHeldYear'
+                type='text'
+                placeholder='Enter year(s) you held this position'
+                onChange={(e) => onChnagePostion(e)}
+              />
+              <Form.Text className='text-muted'>
+                eg. January 2019 – August 2020
+              </Form.Text>
+            </Col>
+            <Col>
+              <Form.Label>Title Position Held</Form.Label>
+              <Form.Control
+                name='positionHeldTitle'
+                type='text'
+                placeholder='Enter position(s) held'
+                onChange={(e) => onChnagePostion(e)}
+              />
+              <Form.Text className='text-muted'>
+                eg. Associate Developer
+              </Form.Text>
+            </Col>
+            <Col>
+              <Button onClick={(e) => addPosition(e)}>Add Position</Button>
+            </Col>
+          </Row>
 
           <Button
             variant='primary'
