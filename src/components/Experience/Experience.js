@@ -1,16 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { CaretDown } from "phosphor-react";
 import { Jumbotron, Container, Accordion, Card, Button } from "react-bootstrap";
 import Breadcrumbs from "../Breadcrumb/Breadcrumbs";
 import Spinner from "../Spinner/Spinner";
+import { experienceData } from "../../data";
 import UseRoutes from "../../Hooks/RoutesHook";
 import styles from "./Experience.module.css";
 
 const Experience = () => {
-  const { loading, experience, getExperienceData } = UseRoutes();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    getExperienceData();
+    setLoading(true);
+    setTimeout(() => setLoading(false), 500);
   }, []);
   return (
     <>
@@ -26,7 +28,7 @@ const Experience = () => {
         ) : (
           <Container>
             <Accordion className={styles.accordian}>
-              {experience?.map((exp, key) => {
+              {experienceData?.map((exp, key) => {
                 return (
                   <Card key={key}>
                     <Card.Header className={styles.accordian}>

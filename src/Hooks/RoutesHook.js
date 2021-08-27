@@ -4,7 +4,7 @@ import axios from "axios";
 import { useAuth } from "./AuthContext";
 
 const UseRoutes = () => {
-  const baseURL = "http://localhost:8080";
+  const baseURL = "https://bonjo-profile-backend.herokuapp.com";
   const { setCurrentUser } = useAuth();
   const history = useHistory();
   const [loading, setLoading] = useState(false);
