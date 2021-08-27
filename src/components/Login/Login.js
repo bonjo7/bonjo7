@@ -41,7 +41,7 @@ const Login = () => {
                 onChange={(e) => onChange(e)}
               />
             </Form.Group>
-            <Button variant='primary' type='submit' onClick={handleLogin}>
+            <Button variant='primary' type='submit' disabled onClick={handleLogin}>
               Submit
             </Button>
           </Form>
