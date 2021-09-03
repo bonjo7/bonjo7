@@ -1,21 +1,22 @@
 import React, { useState, useEffect, useRef } from "react";
 import UseRoutes from "../../Hooks/RoutesHook";
+import { Trash, Plus } from "phosphor-react";
 import { useAuth } from "../../Hooks/AuthContext";
 import Spinner from "../Spinner/Spinner";
-import { Form, Button, Row, Col } from "react-bootstrap";
+import styles from "./Experience.module.css";
+import nextId from "react-id-generator";
+import { Form, Button, Row, Col, ListGroup, Card } from "react-bootstrap";
 
 const UploadExpereince = () => {
-  const ref = useRef();
+  const imageRef = useRef();
+  const titleRef = useRef();
+  const yearRef = useRef();
   const { currentUser } = useAuth();
+  const [formData, setFormData] = useState({});
   const [fileData, setFileData] = useState();
-  const [formData, setFormData] = useState({
-    companyName: "",
-    year: "",
-    positionHeldYear: "",
-    positionHeldTitle: "",
-    address: "",
-    responsibilities: [],
-  });
+  const [positions, setPositions] = useState([]);
+
+  const id = nextId();
   const { loading, postExperienceData } = UseRoutes();
 
   useEffect(() => {}, [loading]);
@@ -28,43 +29,37 @@ const UploadExpereince = () => {
     setFileData(e.target.files[0]);
   };
 
-  let positionArray = [];
-  let positionHeldTitle;
-  let positionHeldYear;
+  const addPosition = (e) => {
+    const positionHeldYear = formData.positionHeldYear;
+    const positionHeldTitle = formData.positionHeldTitle;
 
-  const onChnagePostion = (e) => {
-    e.preventDefault(e);
-    if ((e.target.name = "positionHeldYear")) {
-      positionHeldYear = e.target.value;
-    }
-    if ((e.target.name = "positionHeldTitle")) {
-      positionHeldTitle = e.target.value;
-    }
+    e.preventDefault();
+    titleRef.current.value = "";
+    yearRef.current.value = "";
+    setPositions(positions.concat({ id, positionHeldYear, positionHeldTitle }));
   };
 
-  const addPosition = (e) => {
-    e.preventDefault(e);
-    positionArray.push({ positionHeldYear, positionHeldTitle });
+  const handleRemoveItem = (e) => {
+    const name = e.target.getAttribute("id");
+    setPositions(positions.filter((item) => item.id !== name));
   };
 
   const generateFormDataForUpload = () => {
-    console.log(positionArray);
     const completeFormData = new FormData();
     completeFormData.append("companyName", formData.companyName);
     completeFormData.append("year", formData.year);
-    completeFormData.append("positionHeld", JSON.stringify(positionArray));
+    completeFormData.append("positionHeld", JSON.stringify(positions));
     completeFormData.append("address", formData.address);
     completeFormData.append("responsibilities", formData.responsibilities);
     completeFormData.append("image", fileData);
-
-    // console.log(formData)
+   
     postExperienceData(completeFormData);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault(e);
     generateFormDataForUpload();
-    ref.current.value = "";
+    imageRef.current.value = "";
   };
 
   return (
@@ -73,16 +68,33 @@ const UploadExpereince = () => {
         <Spinner />
       ) : (
         <>
-          <Form.Group className='mb-3' controlId='formBasicEmail'>
-            <Form.Label>Company Name</Form.Label>
-            <Form.Control
-              name='companyName'
-              type='text'
-              placeholder='Enter company name'
-              onChange={(e) => onChange(e)}
-            />
-            <Form.Text className='text-muted'>eg. Red Hat</Form.Text>
-          </Form.Group>
+          <Row>
+            <Col>
+              <Form.Group className='mb-3' controlId='formBasicEmail'>
+                <Form.Label>Company Name</Form.Label>
+                <Form.Control
+                  name='companyName'
+                  type='text'
+                  placeholder='Enter company name'
+                  onChange={(e) => onChange(e)}
+                />
+                <Form.Text className='text-muted'>eg. Red Hat</Form.Text>
+              </Form.Group>
+            </Col>
+            <Col>
+              <Form.Group controlId='formFile' className='mb-3'>
+                <Form.Label>Company Logo</Form.Label>
+                <Form.Control
+                  type='file'
+                  name='file'
+                  accept='image/*'
+                  onChange={(e) => handleFilechange(e)}
+                  placeholder='upload image'
+                  ref={imageRef}
+                />
+              </Form.Group>
+            </Col>
+          </Row>
 
           <Form.Group className='mb-3' controlId='formBasicEmail'>
             <Form.Label>Duration (Year)</Form.Label>
@@ -110,6 +122,70 @@ const UploadExpereince = () => {
             </Form.Text>
           </Form.Group>
 
+          <Form.Group className='mb-3' controlId='formBasicEmail'></Form.Group>
+          <Row>
+            <Col>
+              <Form.Label>Year(s) Position Held</Form.Label>
+              <Form.Control
+                name='positionHeldYear'
+                type='text'
+                placeholder='Enter year(s) you held this position'
+                onChange={(e) => onChange(e)}
+                ref={yearRef}
+              />
+              <Form.Text className='text-muted'>
+                eg. January 2019 – August 2020
+              </Form.Text>
+            </Col>
+            <Col>
+              <Form.Label>Title Position Held</Form.Label>
+              <Form.Control
+                name='positionHeldTitle'
+                type='text'
+                placeholder='Enter position(s) held'
+                onChange={(e) => onChange(e)}
+                ref={titleRef}
+              />
+              <Form.Text className='text-muted'>
+                eg. Associate Developer
+              </Form.Text>
+            </Col>
+            <Col>
+              <Button
+                variant='primary'
+                className={styles.addPositionBtn}
+                onClick={(e) => addPosition(e)}
+              >
+                Add Position
+              </Button>
+            </Col>
+          </Row>
+
+          {positions.length > 0 && (
+            <Card className={styles.positionGroup}>
+              <Card.Body>
+                <Card.Title>Postions within company</Card.Title>
+                {positions.map((item, key) => {
+                  return (
+                    <div key={key}>
+                      <ListGroup variant='flush' key={key}>
+                        <ListGroup.Item key={item.id}>
+                          {item.positionHeldYear} {item.positionHeldTitle}
+                          <Trash
+                            size={25}
+                            color='#ed0c0c'
+                            id={item.id}
+                            onClick={handleRemoveItem}
+                          />
+                        </ListGroup.Item>
+                      </ListGroup>
+                    </div>
+                  );
+                })}
+              </Card.Body>
+            </Card>
+          )}
+
           <Form.Group className='mb-3' controlId='formBasicEmail'>
             <Form.Label>Responsibilities</Form.Label>
             <Form.Control
@@ -125,51 +201,9 @@ const UploadExpereince = () => {
             </Form.Text>
           </Form.Group>
 
-          <Form.Group controlId='formFile' className='mb-3'>
-            <Form.Label>Company Logo</Form.Label>
-            <Form.Control
-              type='file'
-              name='file'
-              accept='image/*'
-              onChange={(e) => handleFilechange(e)}
-              placeholder='upload image'
-              ref={ref}
-            />
-          </Form.Group>
-
-          <Form.Group className='mb-3' controlId='formBasicEmail'></Form.Group>
-          <Row>
-            <Col>
-              <Form.Label>Year(s) Position Held</Form.Label>
-              <Form.Control
-                name='positionHeldYear'
-                type='text'
-                placeholder='Enter year(s) you held this position'
-                onChange={(e) => onChnagePostion(e)}
-              />
-              <Form.Text className='text-muted'>
-                eg. January 2019 – August 2020
-              </Form.Text>
-            </Col>
-            <Col>
-              <Form.Label>Title Position Held</Form.Label>
-              <Form.Control
-                name='positionHeldTitle'
-                type='text'
-                placeholder='Enter position(s) held'
-                onChange={(e) => onChnagePostion(e)}
-              />
-              <Form.Text className='text-muted'>
-                eg. Associate Developer
-              </Form.Text>
-            </Col>
-            <Col>
-              <Button onClick={(e) => addPosition(e)}>Add Position</Button>
-            </Col>
-          </Row>
-
           <Button
-            variant='primary'
+            style={{ width: "100%" }}
+            variant='success'
             disabled={currentUser === "TestUser"}
             onClick={handleSubmit}
           >
