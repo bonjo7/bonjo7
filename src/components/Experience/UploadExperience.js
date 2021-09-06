@@ -1,18 +1,11 @@
+/* eslint-disable no-unused-expressions */
 import React, { useState, useEffect, useRef } from "react";
 import UseRoutes from "../../Hooks/RoutesHook";
-import { Trash } from "phosphor-react";
+import { Trash, Plus } from "phosphor-react";
 import { useAuth } from "../../Hooks/AuthContext";
 import Spinner from "../Spinner/Spinner";
 import styles from "./Experience.module.css";
-import nextId from "react-id-generator";
-import {
-  Form,
-  Button,
-  Row,
-  Col,
-  Card,
-  Table,
-} from "react-bootstrap";
+import { Form, Button, Row, Col, Card } from "react-bootstrap";
 
 const UploadExpereince = () => {
   const imageRef = useRef();
@@ -21,9 +14,10 @@ const UploadExpereince = () => {
   const { currentUser } = useAuth();
   const [formData, setFormData] = useState({});
   const [fileData, setFileData] = useState();
-  const [positions, setPositions] = useState([]);
+  const [positions, setPositions] = useState([
+    { positionHeldYear: "", positionHeldTitle: "" },
+  ]);
 
-  const id = nextId();
   const { loading, postExperienceData } = UseRoutes();
 
   useEffect(() => {}, [loading]);
@@ -36,19 +30,25 @@ const UploadExpereince = () => {
     setFileData(e.target.files[0]);
   };
 
-  const addPosition = (e) => {
-    const positionHeldYear = formData.positionHeldYear;
-    const positionHeldTitle = formData.positionHeldTitle;
-
-    e.preventDefault();
-    titleRef.current.value = "";
-    yearRef.current.value = "";
-    setPositions(positions.concat({ id, positionHeldYear, positionHeldTitle }));
+  const positionOnChange = (e, index) => {
+    const { name, value } = e.target;
+    const list = [...positions];
+    list[index][name] = value;
+    console.log(list);
+    setPositions(list);
   };
 
-  const handleRemoveItem = (e) => {
-    const name = e.target.getAttribute("id");
-    setPositions(positions.filter((item) => item.id !== name));
+  const handleRemoveItem = (e, index) => {
+    const list = [...positions];
+    list.splice(index, 1);
+    setPositions(list);
+  };
+
+  const handleAddClick = () => {
+    setPositions([
+      ...positions,
+      { positionHeldYear: "", positionHeldTitle: "" },
+    ]);
   };
 
   const generateFormDataForUpload = () => {
@@ -141,78 +141,68 @@ const UploadExpereince = () => {
               ></Form.Group>
               <Row>
                 <Col>
-                  <Form.Label>Year(s) Position Held</Form.Label>
-                  <Form.Control
-                    name='positionHeldYear'
-                    type='text'
-                    placeholder='Enter year(s) you held this position'
-                    onChange={(e) => onChange(e)}
-                    ref={yearRef}
-                  />
-                  <Form.Text className='text-muted'>
-                    eg. January 2019 – August 2020
-                  </Form.Text>
+                  <Form.Label>Year Position Held</Form.Label>
                 </Col>
                 <Col>
                   <Form.Label>Title Position Held</Form.Label>
-                  <Form.Control
-                    name='positionHeldTitle'
-                    type='text'
-                    placeholder='Enter position(s) held'
-                    onChange={(e) => onChange(e)}
-                    ref={titleRef}
-                  />
-                  <Form.Text className='text-muted'>
-                    eg. Associate Developer
-                  </Form.Text>
                 </Col>
-                <Col>
-                  <Button
-                    variant='primary'
-                    className={styles.addPositionBtn}
-                    onClick={(e) => addPosition(e)}
-                  >
-                    Add Position
-                  </Button>
-                </Col>
+                <Col></Col>
               </Row>
+              {positions.map((item, i) => {
+                return (
+                  <Row className={styles.row} key={i}>
+                    <Col>
+                      <Form.Control
+                        name='positionHeldYear'
+                        type='text'
+                        value={item.positionHeldYear}
+                        placeholder='Enter year(s) you held this position'
+                        onChange={(e) => positionOnChange(e, i)}
+                        ref={yearRef}
+                      />
+                      <Form.Text className='text-muted'>
+                        eg. January 2019 – August 2020
+                      </Form.Text>
+                    </Col>
+                    <Col>
+                      <Form.Control
+                        name='positionHeldTitle'
+                        type='text'
+                        value={item.positionHeldTitle}
+                        placeholder='Enter position(s) held'
+                        onChange={(e) => positionOnChange(e, i)}
+                        ref={titleRef}
+                      />
+                      <Form.Text className='text-muted'>
+                        eg. Associate Developer
+                      </Form.Text>
+                    </Col>
 
-              {positions.length > 0 && (
-                <>
-                  <Card>
-                    <Card.Body>
-                      <Table responsive borderless className={styles.section}>
-                        <thead>
-                          <tr>
-                            <th>Date (From - To)</th>
-                            <th>Title</th>
-                          </tr>
-                        </thead>
-                        {positions.map((item, key) => {
-                          return (
-                            <tbody>
-                              <tr>
-                                <td>{item.positionHeldYear}</td>
-                                <td>{item.positionHeldTitle}</td>
-                                <td>
-                                  <Trash
-                                    size={25}
-                                    color='#ed0c0c'
-                                    id={item.id}
-                                    onClick={handleRemoveItem}
-                                  />
-                                </td>
-                              </tr>
-                            </tbody>
-                          );
-                        })}
-                      </Table>
-                    </Card.Body>
-                  </Card>
-                </>
-              )}
+                    <Col>
+                      {positions.length !== 1 && (
+                        <Trash
+                          className={styles.trash}
+                          size={30}
+                          color='#ed0c0c'
+                          id={item.id}
+                          onClick={(e) => handleRemoveItem(e, i)}
+                        />
+                      )}
+                      {positions.length - 1 === i && (
+                        <Plus
+                          size={30}
+                          color='#1d44b8'
+                          className={styles.addPositionBtn}
+                          onClick={handleAddClick}
+                        />
+                      )}
+                    </Col>
+                  </Row>
+                );
+              })}
             </Card.Body>
           </Card>
+
           <Card className={styles.section}>
             <Card.Body>
               <Form.Group className='mb-3' controlId='formBasicEmail'>

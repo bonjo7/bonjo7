@@ -53,35 +53,44 @@
   height: 50px;
 }
 
-.breadcrumbList{
+.breadcrumbList {
   display: flex;
-    flex-wrap: wrap;
-    padding: .75rem 1rem;
-    margin-bottom: 1rem;
-    list-style: none;
-    background-color: transparent;
-    border-radius: .25rem;
+  flex-wrap: wrap;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  list-style: none;
+  background-color: transparent;
+  border-radius: 0.25rem;
 }
 
-.addPositionBtn{
-  margin-top: 32px;
+.addPositionBtn {
+  margin-left: 20px;
+  margin-top: 5px;
 }
 
-.section{
+.section {
   margin-bottom: 20px;
 }
 
-.table{
+.table {
   margin-top: 20px;
 }
 
-.positionGroup{
+.positionGroup {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.trash {
+  margin-top: 5px;
+}
+
+.row {
+  margin-bottom: 35px;
 }
 
 @media screen and (max-width: 650px) {
-  .name{
+  .name {
     width: 100%;
     margin-left: auto;
     margin-right: auto;

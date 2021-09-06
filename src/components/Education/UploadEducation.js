@@ -140,7 +140,8 @@ const Test = () => {
           </Form.Group>
 
           <Button
-            variant='primary'
+            style={{ width: "100%" }}
+            variant='success'
             disabled={currentUser === "TestUser"}
             onClick={handleSubmit}
           >
