@@ -13,7 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 const App = () => {
-  const user = localStorage.getItem("user");
+  const user = sessionStorage.getItem("user");
 
   return (
     <AuthProvider user={user}>

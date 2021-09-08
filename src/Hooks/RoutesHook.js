@@ -32,8 +32,8 @@ const UseRoutes = () => {
     const config = {
       headers: {
         "Content-Type": "application/json",
-        TOKEN_KEY: localStorage.getItem("TOKEN_KEY"),
-        token: localStorage.getItem("token"),
+        TOKEN_KEY: sessionStorage.getItem("TOKEN_KEY"),
+        token: sessionStorage.getItem("token"),
       },
     };
 
@@ -56,10 +56,10 @@ const UseRoutes = () => {
     try {
       await axios.post(`${baseURL}/user/login`, credentials).then((res) => {
         setLoading(false);
-        localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("user", res.data.username);
-        localStorage.setItem("token", res.data.token);
-        localStorage.setItem("TOKEN_KEY", res.data.TOKEN_KEY);
+        sessionStorage.setItem("isLoggedIn", "true");
+        sessionStorage.setItem("user", res.data.username);
+        sessionStorage.setItem("token", res.data.token);
+        sessionStorage.setItem("TOKEN_KEY", res.data.TOKEN_KEY);
         setCurrentUser(res.data.username);
         history.push("/settings");
       });
@@ -75,8 +75,8 @@ const UseRoutes = () => {
     const config = {
       headers: {
         
-        TOKEN_KEY: localStorage.getItem("TOKEN_KEY"),
-        token: localStorage.getItem("token"),
+        TOKEN_KEY: sessionStorage.getItem("TOKEN_KEY"),
+        token: sessionStorage.getItem("token"),
       },
     };
 

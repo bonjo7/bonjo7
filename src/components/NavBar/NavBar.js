@@ -37,8 +37,8 @@ const NavBar = () => {
   };
 
   const logout = async (e) => {
-    localStorage.removeItem("isLoggedIn");
-    localStorage.clear();
+    sessionStorage.removeItem("isLoggedIn");
+    sessionStorage.clear();
     setCurrentUser(null);
     history.push("/");
   };

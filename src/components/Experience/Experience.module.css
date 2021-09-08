@@ -85,6 +85,16 @@
   margin-top: 5px;
 }
 
+.errorsInput{
+  border: 1px solid red !important;
+}
+
+.errors{
+  color: red;
+  margin-top: 5px;
+  margin-bottom: -3px;
+}
+
 .row {
   margin-bottom: 35px;
 }

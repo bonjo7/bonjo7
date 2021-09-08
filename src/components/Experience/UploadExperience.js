@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-expressions */
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
 import UseRoutes from "../../Hooks/RoutesHook";
 import { Trash, Plus } from "phosphor-react";
 import { useAuth } from "../../Hooks/AuthContext";
@@ -8,9 +9,12 @@ import styles from "./Experience.module.css";
 import { Form, Button, Row, Col, Card } from "react-bootstrap";
 
 const UploadExpereince = () => {
-  const imageRef = useRef();
-  const titleRef = useRef();
-  const yearRef = useRef();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    clearErrors,
+  } = useForm();
   const { currentUser } = useAuth();
   const [formData, setFormData] = useState({});
   const [fileData, setFileData] = useState();
@@ -22,19 +26,41 @@ const UploadExpereince = () => {
 
   useEffect(() => {}, [loading]);
 
-  const onChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const clearErrorsOnInput = (e) => {
+    switch (e) {
+      case "companyName":
+        clearErrors("companyName");
+        break;
+      case "address":
+        clearErrors("address");
+        break;
+      case "year":
+        clearErrors("year");
+        break;
+      case "responsibilities":
+        clearErrors("responsibilities");
+        break;
+      case "file":
+        clearErrors("file");
+        break;
+      default:
+        clearErrors();
+    }
   };
 
-  const handleFilechange = (e) => {
-    setFileData(e.target.files[0]);
+  const onChange = (e) => {
+    const { name, files, value } = e.target;
+    clearErrorsOnInput(name);
+    name === "file"
+      ? setFileData(files[0])
+      : setFormData({ ...formData, [name]: value });
   };
 
   const positionOnChange = (e, index) => {
     const { name, value } = e.target;
+    clearErrorsOnInput(name, index);
     const list = [...positions];
     list[index][name] = value;
-    console.log(list);
     setPositions(list);
   };
 
@@ -51,7 +77,7 @@ const UploadExpereince = () => {
     ]);
   };
 
-  const generateFormDataForUpload = () => {
+  const handleSubmitForm = () => {
     const completeFormData = new FormData();
     completeFormData.append("companyName", formData.companyName);
     completeFormData.append("year", formData.year);
@@ -61,12 +87,6 @@ const UploadExpereince = () => {
     completeFormData.append("image", fileData);
 
     postExperienceData(completeFormData);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault(e);
-    generateFormDataForUpload();
-    imageRef.current.value = "";
   };
 
   return (
@@ -81,12 +101,18 @@ const UploadExpereince = () => {
                 <Col>
                   <Form.Group className='mb-3' controlId='formBasicEmail'>
                     <Form.Label>Company Name</Form.Label>
+
                     <Form.Control
+                      className={errors.companyName ? styles.errorsInput : ""}
                       name='companyName'
                       type='text'
                       placeholder='Enter company name'
+                      {...register("companyName", { required: true })}
                       onChange={(e) => onChange(e)}
                     />
+                    {errors.companyName && (
+                      <p className={styles.errors}>Company Name is required</p>
+                    )}
                     <Form.Text className='text-muted'>eg. Red Hat</Form.Text>
                   </Form.Group>
                 </Col>
@@ -94,13 +120,17 @@ const UploadExpereince = () => {
                   <Form.Group controlId='formFile' className='mb-3'>
                     <Form.Label>Company Logo</Form.Label>
                     <Form.Control
+                      className={errors.file ? styles.errorsInput : ""}
                       type='file'
                       name='file'
                       accept='image/*'
-                      onChange={(e) => handleFilechange(e)}
+                      {...register("file", { required: true })}
+                      onChange={(e) => onChange(e)}
                       placeholder='upload image'
-                      ref={imageRef}
                     />
+                    {errors.file && (
+                      <p className={styles.errors}>Company Image is required</p>
+                    )}
                   </Form.Group>
                 </Col>
               </Row>
@@ -108,11 +138,16 @@ const UploadExpereince = () => {
               <Form.Group className='mb-3' controlId='formBasicEmail'>
                 <Form.Label>Duration (Year)</Form.Label>
                 <Form.Control
+                  className={errors.year ? styles.errorsInput : ""}
                   name='year'
                   type='text'
                   placeholder='Enter year'
+                  {...register("year", { required: true })}
                   onChange={(e) => onChange(e)}
                 />
+                {errors.year && (
+                  <p className={styles.errors}>Company duration is required</p>
+                )}
                 <Form.Text className='text-muted'>
                   eg. January 2019 - March 2020
                 </Form.Text>
@@ -121,11 +156,16 @@ const UploadExpereince = () => {
               <Form.Group className='mb-3' controlId='formBasicEmail'>
                 <Form.Label>Company Address</Form.Label>
                 <Form.Control
+                  className={errors.address ? styles.errorsInput : ""}
                   name='address'
                   type='text'
                   placeholder='Enter company address'
+                  {...register("address", { required: true })}
                   onChange={(e) => onChange(e)}
                 />
+                {errors.address && (
+                  <p className={styles.errors}>Company Address is required</p>
+                )}
                 <Form.Text className='text-muted'>
                   Red Hat, Communications House, Cork Road, Waterford, Ireland.
                 </Form.Text>
@@ -148,17 +188,17 @@ const UploadExpereince = () => {
                 </Col>
                 <Col></Col>
               </Row>
-              {positions.map((item, i) => {
+              {positions.map((item, index) => {
                 return (
-                  <Row className={styles.row} key={i}>
+                  <Row className={styles.row} key={index}>
                     <Col>
                       <Form.Control
+                      className={errors.positionHeldYear ? styles.errorsInput : ""}
                         name='positionHeldYear'
                         type='text'
                         value={item.positionHeldYear}
                         placeholder='Enter year(s) you held this position'
-                        onChange={(e) => positionOnChange(e, i)}
-                        ref={yearRef}
+                        onChange={(e) => positionOnChange(e, index)}
                       />
                       <Form.Text className='text-muted'>
                         eg. January 2019 – August 2020
@@ -170,8 +210,7 @@ const UploadExpereince = () => {
                         type='text'
                         value={item.positionHeldTitle}
                         placeholder='Enter position(s) held'
-                        onChange={(e) => positionOnChange(e, i)}
-                        ref={titleRef}
+                        onChange={(e) => positionOnChange(e, index)}
                       />
                       <Form.Text className='text-muted'>
                         eg. Associate Developer
@@ -185,10 +224,10 @@ const UploadExpereince = () => {
                           size={30}
                           color='#ed0c0c'
                           id={item.id}
-                          onClick={(e) => handleRemoveItem(e, i)}
+                          onClick={(e) => handleRemoveItem(e, index)}
                         />
                       )}
-                      {positions.length - 1 === i && (
+                      {positions.length - 1 === index && (
                         <Plus
                           size={30}
                           color='#1d44b8'
@@ -208,13 +247,18 @@ const UploadExpereince = () => {
               <Form.Group className='mb-3' controlId='formBasicEmail'>
                 <Form.Label>Responsibilities</Form.Label>
                 <Form.Control
+                  className={errors.responsibilities ? styles.errorsInput : ""}
                   name='responsibilities'
                   type='text'
                   as='textarea'
                   rows={6}
                   placeholder='Enter responsibilities'
+                  {...register("responsibilities", { required: true })}
                   onChange={(e) => onChange(e)}
                 />
+                {errors.responsibilities && (
+                  <p className={styles.errors}>Responsibilities is required</p>
+                )}
                 <Form.Text className='text-muted'>
                   eg. List all your responsibilities
                 </Form.Text>
@@ -226,7 +270,7 @@ const UploadExpereince = () => {
             style={{ width: "100%" }}
             variant='success'
             disabled={currentUser === "TestUser"}
-            onClick={handleSubmit}
+            onClick={handleSubmit(handleSubmitForm)}
           >
             Submit
           </Button>
