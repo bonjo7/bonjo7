@@ -64,7 +64,6 @@
 }
 
 .addPositionBtn {
-  margin-left: 20px;
   margin-top: 5px;
 }
 
@@ -83,6 +82,16 @@
 
 .trash {
   margin-top: 5px;
+}
+
+.trashFirst,
+.addPositionBtnFirst {
+  margin-top: 35px;
+}
+
+.colButton {
+  max-width: 50px !important;
+  margin-left: -10px !important;
 }
 
 .errorsInput{
