@@ -14,7 +14,7 @@ const UploadExpereince = () => {
     handleSubmit,
     formState: { errors },
     clearErrors,
-  } = useForm();
+  } = useForm({ mode: "onChange" });
   const { currentUser } = useAuth();
   const [employmentStatus, setEmployedStatus] = useState();
   const [formData, setFormData] = useState({});
@@ -26,8 +26,6 @@ const UploadExpereince = () => {
   const { loading, postExperienceData } = UseRoutes();
 
   useEffect(() => {}, [loading]);
-
-  useEffect(() => {}, [employmentStatus]);
 
   const clearErrorsOnInput = (e) => {
     switch (e) {
@@ -49,6 +47,10 @@ const UploadExpereince = () => {
       default:
         clearErrors();
     }
+  };
+
+  const employed = () => {
+    employmentStatus ? setEmployedStatus(false) : setEmployedStatus(true);
   };
 
   const onChange = (e) => {
@@ -83,7 +85,8 @@ const UploadExpereince = () => {
   const handleSubmitForm = () => {
     const completeFormData = new FormData();
     completeFormData.append("companyName", formData.companyName);
-    completeFormData.append("year", formData.year);
+    completeFormData.append("companyStartDate", formData.companyStartDate);
+    completeFormData.append("companyFinishDate", formData.companyFinishDate);
     completeFormData.append("positionHeld", JSON.stringify(positions));
     completeFormData.append("address", formData.address);
     completeFormData.append("responsibilities", formData.responsibilities);
@@ -92,15 +95,8 @@ const UploadExpereince = () => {
     postExperienceData(completeFormData);
   };
 
-  const employed = (e) => {
-    if (employmentStatus) {
-      setEmployedStatus(false);
-    } else {
-      setEmployedStatus(true);
-    }
-  };
+  console.log(positions)
 
-  console.log(employmentStatus);
   return (
     <>
       {loading ? (
@@ -110,10 +106,27 @@ const UploadExpereince = () => {
           <Form>
             <Card className={styles.section}>
               <Card.Body>
+                <Card.Title>Company details</Card.Title>
+                <Row>
+                  <Col>
+                    <Form.Group className='mb-3' controlId='formBasicCheckbox'>
+                      <Form.Check
+                        className={styles.checkbox}
+                        type='checkbox'
+                        label='If this is your current employer, please check the checkbox to set fields correctly'
+                        onClick={(e) => {
+                          employed(e);
+                        }}
+                      />
+                    </Form.Group>
+                  </Col>
+                </Row>
                 <Row>
                   <Col>
                     <Form.Group className='mb-3' controlId='formBasicEmail'>
-                      <Form.Label>Company Name</Form.Label>
+                      <Form.Label className={styles.required}>
+                        Company Name
+                      </Form.Label>
 
                       <Form.Control
                         className={errors.companyName ? styles.errorsInput : ""}
@@ -133,7 +146,9 @@ const UploadExpereince = () => {
                   </Col>
                   <Col>
                     <Form.Group controlId='formFile' className='mb-3'>
-                      <Form.Label>Company Logo</Form.Label>
+                      <Form.Label className={styles.required}>
+                        Company Logo
+                      </Form.Label>
                       <Form.Control
                         className={errors.file ? styles.errorsInput : ""}
                         type='file'
@@ -152,28 +167,59 @@ const UploadExpereince = () => {
                   </Col>
                 </Row>
 
-                <Form.Group className='mb-3' controlId='formBasicEmail'>
-                  <Form.Label>Duration (Year)</Form.Label>
-                  <Form.Control
-                    className={errors.year ? styles.errorsInput : ""}
-                    name='year'
-                    type='text'
-                    placeholder='Enter year'
-                    {...register("year", { required: true })}
-                    onChange={(e) => onChange(e)}
-                  />
-                  {errors.year && (
-                    <p className={styles.errors}>
-                      Company duration is required
-                    </p>
-                  )}
-                  <Form.Text className='text-muted'>
-                    eg. January 2019 - March 2020
-                  </Form.Text>
-                </Form.Group>
+                <Row>
+                  <Col>
+                    <Form.Label className={styles.required}>
+                      Start Date
+                    </Form.Label>
 
-                <Form.Group className='mb-3' controlId='formBasicEmail'>
-                  <Form.Label>Company Address</Form.Label>
+                    <Form.Control
+                      className={
+                        errors.companyStartDate ? styles.errorsInput : ""
+                      }
+                      name='companyStartDate'
+                      type='date'
+                      placeholder='dd/mm/yyyy'
+                      {...register("companyStartDate", { required: true })}
+                      onChange={(e) => onChange(e)}
+                    />
+                    {errors.companyStartDate && (
+                      <p className={styles.errors}>Start Date is required</p>
+                    )}
+                    <Form.Text className='text-muted'>eg. dd/mm/yyyy</Form.Text>
+                  </Col>
+                  <Col>
+                    <Form.Label className={styles.required}>
+                      Finish Date
+                    </Form.Label>
+
+                    <Form.Control
+                      className={
+                        errors.companyFinishDate ? styles.errorsInput : ""
+                      }
+                      name='companyFinishDate'
+                      type={employmentStatus ? "text" : "date"}
+                      placeholder={employmentStatus ? "Present" : "dd/mm/yyyy"}
+                      {...register("companyFinishDate", { required: true })}
+                      onChange={(e) => onChange(e)}
+                    />
+                    {errors.companyFinishDate && (
+                      <p className={styles.errors}>Finsh Date is required</p>
+                    )}
+                    <Form.Text className='text-muted'>
+                      eg. {employmentStatus ? "Present" : "dd/mm/yyyy"}
+                    </Form.Text>
+                  </Col>
+                </Row>
+
+                <Form.Group
+                  className='mb-3'
+                  controlId='formBasicEmail'
+                  style={{ marginTop: "15px" }}
+                >
+                  <Form.Label className={styles.required}>
+                    Company Address
+                  </Form.Label>
                   <Form.Control
                     className={errors.address ? styles.errorsInput : ""}
                     name='address'
@@ -186,7 +232,7 @@ const UploadExpereince = () => {
                     <p className={styles.errors}>Company Address is required</p>
                   )}
                   <Form.Text className='text-muted'>
-                    Red Hat, Communications House, Cork Road, Waterford,
+                    eg. Red Hat, Communications House, Cork Road, Waterford,
                     Ireland.
                   </Form.Text>
                 </Form.Group>
@@ -199,30 +245,22 @@ const UploadExpereince = () => {
                   className='mb-3'
                   controlId='formBasicEmail'
                 ></Form.Group>
-                <Row>
-                  <Col>
-                    <Form.Group className='mb-3' controlId='formBasicCheckbox'>
-                      <Form.Check
-                        type='checkbox'
-                        label='Currently in employment, please click here to set fields correctly'
-                        onClick={(e) => {
-                          employed(e);
-                        }}
-                      />
-                    </Form.Group>
-                  </Col>
-                </Row>
+                <Card.Title>Positions Held within company</Card.Title>
+
                 {positions.map((item, index) => {
-                  console.log(index);
                   return (
                     <Row className={styles.row} key={index}>
                       <Col>
-                        {index === 0 && <Form.Label>Start Date</Form.Label>}
+                        {index === 0 && (
+                          <Form.Label className={styles.required}>
+                            Start Date
+                          </Form.Label>
+                        )}
 
                         <Form.Control
                           name='positionStartDate'
                           type='date'
-                          value={item.positionStartDate}
+                          // value={item.positionStartDate}
                           placeholder='Enter year(s) you held this position'
                           onChange={(e) => positionOnChange(e, index)}
                         />
@@ -231,7 +269,11 @@ const UploadExpereince = () => {
                         </Form.Text>
                       </Col>
                       <Col>
-                        {index === 0 && <Form.Label>Finish Date</Form.Label>}
+                        {index === 0 && (
+                          <Form.Label className={styles.required}>
+                            Finish Date
+                          </Form.Label>
+                        )}
                         <Form.Control
                           name='positionFinishDate'
                           type={
@@ -253,7 +295,11 @@ const UploadExpereince = () => {
                         </Form.Text>
                       </Col>
                       <Col>
-                        {index === 0 && <Form.Label>Title</Form.Label>}
+                        {index === 0 && (
+                          <Form.Label className={styles.required}>
+                            Title
+                          </Form.Label>
+                        )}
                         <Form.Control
                           name='positionHeldTitle'
                           type='text'
@@ -301,8 +347,13 @@ const UploadExpereince = () => {
 
             <Card className={styles.section}>
               <Card.Body>
+                <Card.Title>
+                  Roles and responsibilities within company
+                </Card.Title>
                 <Form.Group className='mb-3' controlId='formBasicEmail'>
-                  <Form.Label>Responsibilities</Form.Label>
+                  <Form.Label className={styles.required}>
+                    Responsibilities
+                  </Form.Label>
                   <Form.Control
                     className={
                       errors.responsibilities ? styles.errorsInput : ""

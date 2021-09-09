@@ -84,9 +84,19 @@
   margin-top: 5px;
 }
 
+.checkbox {
+  color: #1d44b8;
+  font-style: italic;
+}
+
 .trashFirst,
 .addPositionBtnFirst {
   margin-top: 35px;
+}
+
+.required:after {
+  content:" *";
+  color: red;
 }
 
 .colButton {
@@ -94,11 +104,11 @@
   margin-left: -10px !important;
 }
 
-.errorsInput{
+.errorsInput {
   border: 1px solid red !important;
 }
 
-.errors{
+.errors {
   color: red;
   margin-top: 5px;
   margin-bottom: -3px;
