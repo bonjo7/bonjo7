@@ -1,21 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
 import UseRoutes from "../../Hooks/RoutesHook";
 import { Trash, Plus } from "phosphor-react";
-import { useAuth } from "../../Hooks/AuthContext";
 import Spinner from "../Spinner/Spinner";
 import styles from "./Experience.module.css";
 import { Form, Button, Row, Col, Card } from "react-bootstrap";
 
 const UploadExpereince = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    clearErrors,
-  } = useForm({ mode: "onChange" });
-  const { currentUser } = useAuth();
+  const [enable, setEnable] = useState(false);
   const [employmentStatus, setEmployedStatus] = useState();
   const [formData, setFormData] = useState({});
   const [fileData, setFileData] = useState();
@@ -27,27 +20,58 @@ const UploadExpereince = () => {
 
   useEffect(() => {}, [loading]);
 
-  const clearErrorsOnInput = (e) => {
-    switch (e) {
-      case "companyName":
-        clearErrors("companyName");
-        break;
-      case "address":
-        clearErrors("address");
-        break;
-      case "year":
-        clearErrors("year");
-        break;
-      case "responsibilities":
-        clearErrors("responsibilities");
-        break;
-      case "file":
-        clearErrors("file");
-        break;
-      default:
-        clearErrors();
+  const formValidation = () => {
+    let positionValidation;
+    let formValidation;
+    positions.forEach((item) => {
+      const { positionStartDate, positionFinishDate, positionHeldTitle } = item;
+      if (
+        positionStartDate &&
+        positionStartDate !== "" &&
+        positionFinishDate &&
+        positionFinishDate !== "" &&
+        positionHeldTitle &&
+        positionHeldTitle !== ""
+      ) {
+        positionValidation = true;
+      } else {
+        positionValidation = false;
+      }
+    });
+
+    const {
+      companyName,
+      companyStartDate,
+      companyFinishDate,
+      address,
+      responsibilities,
+    } = formData;
+
+    if (
+      companyName &&
+      companyName !== "" &&
+      companyStartDate &&
+      companyStartDate !== "" &&
+      companyFinishDate &&
+      companyFinishDate !== "" &&
+      address &&
+      address !== "" &&
+      responsibilities &&
+      responsibilities !== "" &&
+      fileData &&
+      fileData.name !== ""
+    ) {
+      formValidation = true;
+    }
+
+    if (positionValidation && formValidation) {
+      setEnable(true);
     }
   };
+
+  useEffect(() => {
+    formValidation();
+  }, [formData, fileData, positions]);
 
   const employed = () => {
     employmentStatus ? setEmployedStatus(false) : setEmployedStatus(true);
@@ -55,7 +79,6 @@ const UploadExpereince = () => {
 
   const onChange = (e) => {
     const { name, files, value } = e.target;
-    clearErrorsOnInput(name);
     name === "file"
       ? setFileData(files[0])
       : setFormData({ ...formData, [name]: value });
@@ -63,7 +86,6 @@ const UploadExpereince = () => {
 
   const positionOnChange = (e, index) => {
     const { name, value } = e.target;
-    clearErrorsOnInput(name, index);
     const list = [...positions];
     list[index][name] = value;
     setPositions(list);
@@ -94,8 +116,6 @@ const UploadExpereince = () => {
 
     postExperienceData(completeFormData);
   };
-
-  console.log(positions)
 
   return (
     <>
@@ -129,18 +149,11 @@ const UploadExpereince = () => {
                       </Form.Label>
 
                       <Form.Control
-                        className={errors.companyName ? styles.errorsInput : ""}
                         name='companyName'
                         type='text'
                         placeholder='Enter company name'
-                        {...register("companyName", { required: true })}
                         onChange={(e) => onChange(e)}
                       />
-                      {errors.companyName && (
-                        <p className={styles.errors}>
-                          Company Name is required
-                        </p>
-                      )}
                       <Form.Text className='text-muted'>eg. Red Hat</Form.Text>
                     </Form.Group>
                   </Col>
@@ -150,19 +163,12 @@ const UploadExpereince = () => {
                         Company Logo
                       </Form.Label>
                       <Form.Control
-                        className={errors.file ? styles.errorsInput : ""}
                         type='file'
                         name='file'
                         accept='image/*'
-                        {...register("file", { required: true })}
                         onChange={(e) => onChange(e)}
                         placeholder='upload image'
                       />
-                      {errors.file && (
-                        <p className={styles.errors}>
-                          Company Image is required
-                        </p>
-                      )}
                     </Form.Group>
                   </Col>
                 </Row>
@@ -174,18 +180,11 @@ const UploadExpereince = () => {
                     </Form.Label>
 
                     <Form.Control
-                      className={
-                        errors.companyStartDate ? styles.errorsInput : ""
-                      }
                       name='companyStartDate'
                       type='date'
                       placeholder='dd/mm/yyyy'
-                      {...register("companyStartDate", { required: true })}
                       onChange={(e) => onChange(e)}
                     />
-                    {errors.companyStartDate && (
-                      <p className={styles.errors}>Start Date is required</p>
-                    )}
                     <Form.Text className='text-muted'>eg. dd/mm/yyyy</Form.Text>
                   </Col>
                   <Col>
@@ -194,18 +193,11 @@ const UploadExpereince = () => {
                     </Form.Label>
 
                     <Form.Control
-                      className={
-                        errors.companyFinishDate ? styles.errorsInput : ""
-                      }
                       name='companyFinishDate'
                       type={employmentStatus ? "text" : "date"}
                       placeholder={employmentStatus ? "Present" : "dd/mm/yyyy"}
-                      {...register("companyFinishDate", { required: true })}
                       onChange={(e) => onChange(e)}
                     />
-                    {errors.companyFinishDate && (
-                      <p className={styles.errors}>Finsh Date is required</p>
-                    )}
                     <Form.Text className='text-muted'>
                       eg. {employmentStatus ? "Present" : "dd/mm/yyyy"}
                     </Form.Text>
@@ -221,16 +213,11 @@ const UploadExpereince = () => {
                     Company Address
                   </Form.Label>
                   <Form.Control
-                    className={errors.address ? styles.errorsInput : ""}
                     name='address'
                     type='text'
                     placeholder='Enter company address'
-                    {...register("address", { required: true })}
                     onChange={(e) => onChange(e)}
                   />
-                  {errors.address && (
-                    <p className={styles.errors}>Company Address is required</p>
-                  )}
                   <Form.Text className='text-muted'>
                     eg. Red Hat, Communications House, Cork Road, Waterford,
                     Ireland.
@@ -251,16 +238,14 @@ const UploadExpereince = () => {
                   return (
                     <Row className={styles.row} key={index}>
                       <Col>
-                        {index === 0 && (
-                          <Form.Label className={styles.required}>
-                            Start Date
-                          </Form.Label>
-                        )}
+                        <Form.Label className={styles.required}>
+                          Start Date
+                        </Form.Label>
 
                         <Form.Control
                           name='positionStartDate'
                           type='date'
-                          // value={item.positionStartDate}
+                          value={item.positionStartDate}
                           placeholder='Enter year(s) you held this position'
                           onChange={(e) => positionOnChange(e, index)}
                         />
@@ -269,11 +254,10 @@ const UploadExpereince = () => {
                         </Form.Text>
                       </Col>
                       <Col>
-                        {index === 0 && (
-                          <Form.Label className={styles.required}>
-                            Finish Date
-                          </Form.Label>
-                        )}
+                        <Form.Label className={styles.required}>
+                          Finish Date
+                        </Form.Label>
+
                         <Form.Control
                           name='positionFinishDate'
                           type={
@@ -295,11 +279,10 @@ const UploadExpereince = () => {
                         </Form.Text>
                       </Col>
                       <Col>
-                        {index === 0 && (
-                          <Form.Label className={styles.required}>
-                            Title
-                          </Form.Label>
-                        )}
+                        <Form.Label className={styles.required}>
+                          Title
+                        </Form.Label>
+
                         <Form.Control
                           name='positionHeldTitle'
                           type='text'
@@ -315,9 +298,7 @@ const UploadExpereince = () => {
                       <Col className={styles.colButton}>
                         {positions.length !== 1 && (
                           <Trash
-                            className={
-                              index === 0 ? styles.trashFirst : styles.trash
-                            }
+                            className={styles.trash}
                             size={30}
                             color='#ed0c0c'
                             id={item.id}
@@ -328,11 +309,7 @@ const UploadExpereince = () => {
                       <Col className={styles.colButton}>
                         {positions.length - 1 === index && (
                           <Plus
-                            className={
-                              index === 0
-                                ? styles.addPositionBtnFirst
-                                : styles.addPositionBtn
-                            }
+                            className={styles.addPositionBtn}
                             size={30}
                             color='#1d44b8'
                             onClick={handleAddClick}
@@ -355,22 +332,13 @@ const UploadExpereince = () => {
                     Responsibilities
                   </Form.Label>
                   <Form.Control
-                    className={
-                      errors.responsibilities ? styles.errorsInput : ""
-                    }
                     name='responsibilities'
                     type='text'
                     as='textarea'
                     rows={6}
                     placeholder='Enter responsibilities'
-                    {...register("responsibilities", { required: true })}
                     onChange={(e) => onChange(e)}
                   />
-                  {errors.responsibilities && (
-                    <p className={styles.errors}>
-                      Responsibilities is required
-                    </p>
-                  )}
                   <Form.Text className='text-muted'>
                     eg. List all your responsibilities
                   </Form.Text>
@@ -380,9 +348,9 @@ const UploadExpereince = () => {
 
             <Button
               style={{ width: "100%" }}
-              variant='success'
-              disabled={currentUser === "TestUser"}
-              onClick={handleSubmit(handleSubmitForm)}
+              variant={enable ? "success" : "danger"}
+              disabled={enable === false}
+              onClick={handleSubmitForm}
             >
               Submit
             </Button>

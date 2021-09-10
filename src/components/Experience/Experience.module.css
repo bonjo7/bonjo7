@@ -63,10 +63,6 @@
   border-radius: 0.25rem;
 }
 
-.addPositionBtn {
-  margin-top: 5px;
-}
-
 .section {
   margin-bottom: 20px;
 }
@@ -80,17 +76,13 @@
   margin-bottom: 20px;
 }
 
-.trash {
-  margin-top: 5px;
-}
-
 .checkbox {
   color: #1d44b8;
   font-style: italic;
 }
 
-.trashFirst,
-.addPositionBtnFirst {
+.trash,
+.addPositionBtn {
   margin-top: 35px;
 }
 
