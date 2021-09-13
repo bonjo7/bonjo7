@@ -7,6 +7,7 @@ import Experience from "./components/Experience/Experience";
 import Education from "./components/Education/Education";
 import NavBar from "./components/NavBar/NavBar";
 import Settings from "./components/SettingsEdit/Settings";
+import UploadExpereince from "./components/Experience/UploadExperience";
 import Login from "./components/Login/Login";
 import PrivateRoute from "./Hooks/PrivateRoute";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -32,6 +33,11 @@ const App = () => {
                 exact
                 path='/settings'
                 component={Settings}
+              />
+              <PrivateRoute
+                exact
+                path='/experience/:id'
+                component={UploadExpereince}
               />
             </Switch>
           </div>

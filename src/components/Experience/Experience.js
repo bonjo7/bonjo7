@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { CaretDown } from "phosphor-react";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { CaretDown, Pencil } from "phosphor-react";
+import Moment from "moment";
 import { Jumbotron, Container, Accordion, Card, Button } from "react-bootstrap";
 import Breadcrumbs from "../Breadcrumb/Breadcrumbs";
 import Spinner from "../Spinner/Spinner";
-import { experienceData } from "../../data";
 import UseRoutes from "../../Hooks/RoutesHook";
 import styles from "./Experience.module.css";
 
 const Experience = () => {
-  const [loading, setLoading] = useState(false);
+  const { loading, experience, getExperienceData, getOneExp } = UseRoutes();
 
   useEffect(() => {
-    setLoading(true);
-    setTimeout(() => setLoading(false), 500);
+    getExperienceData();
   }, []);
   return (
     <>
@@ -28,7 +28,12 @@ const Experience = () => {
         ) : (
           <Container>
             <Accordion className={styles.accordian}>
-              {experienceData?.map((exp, key) => {
+              {experience?.map((exp, key) => {
+                const fromDate = new Date(exp.companyStartDate);
+                const toDate =
+                  exp.companyFinishDate === "Present"
+                    ? exp.companyFinishDate
+                    : Moment(new Date(exp.companyFinishDate)).format("MMMM YYYY");
                 return (
                   <Card key={key}>
                     <Card.Header className={styles.accordian}>
@@ -36,7 +41,7 @@ const Experience = () => {
                         className={styles.headerName}
                         as={Button}
                         variant='link'
-                        eventKey={exp.id}
+                        eventKey={exp._id}
                       >
                         <div className={styles.wrapper} key={key}>
                           <div className={styles.imgDiv}>
@@ -46,19 +51,36 @@ const Experience = () => {
                               alt={`${exp.companyName} company logo`}
                             />{" "}
                           </div>
-                          <div className={styles.name}>
+                          <div className={styles.companyName}>
                             {exp.companyName}
-                            <div className={styles.year}>{exp.year}</div>
+                            <div className={styles.year}>{`${Moment(
+                              fromDate
+                            ).format("MMMM YYYY")} - ${toDate
+                            }`}</div>
+                          </div>
+
+                          <div >
+                          <Link to={`/experience/${exp._id}`}>
+                            <Pencil size={20}
+                            style={{marginRight: "15px"}}
+                              />
+                            </Link>
                           </div>
                           <div className={styles.caret}>
+                            
                             <CaretDown size={20} />
                           </div>
                         </div>
                       </Accordion.Toggle>
                     </Card.Header>
-                    <Accordion.Collapse eventKey={exp.id}>
+                    <Accordion.Collapse eventKey={exp._id}>
                       <Card.Body>
                         {exp?.positionHeld?.map((position, key) => {
+                          const fromDate = new Date(position.positionStartDate);
+                          const toDate =
+                            position.positionFinishDate === "Present"
+                              ? position.positionFinishDate
+                              : Moment(new Date(position.positionFinishDate)).format("MMMM YYYY");
                           return (
                             <div key={key} className={styles.wrapper}>
                               <div>
@@ -66,13 +88,15 @@ const Experience = () => {
                                   <li
                                     key={key}
                                     style={{ fontStyle: "italic" }}
-                                  >{`${position.date}:`}</li>
+                                  >{`${Moment(fromDate).format(
+                                    "MMMM YYYY"
+                                  )} - ${toDate }:`}</li>
                                 </ul>
                               </div>
                               <div>
                                 <ul key={key} style={{ listStyleType: "none" }}>
                                   <li key={key} style={{ fontWeight: "bold" }}>
-                                    {position.title}
+                                    {position.positionHeldTitle}
                                   </li>
                                 </ul>
                               </div>

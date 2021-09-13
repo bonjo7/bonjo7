@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom"
 import UseRoutes from "../../Hooks/RoutesHook";
 import { Trash, Plus } from "phosphor-react";
 import Spinner from "../Spinner/Spinner";
@@ -8,16 +9,23 @@ import styles from "./Experience.module.css";
 import { Form, Button, Row, Col, Card } from "react-bootstrap";
 
 const UploadExpereince = () => {
+  const { id } = useParams()
+  const { loading, experience, postExperienceData, getOneExp } = UseRoutes();
   const [enable, setEnable] = useState(false);
   const [employmentStatus, setEmployedStatus] = useState();
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    companyName: "",
+    companyStartDate: "",
+    companyFinishDate: "",
+    address: "",
+    responsibilities: [],
+  });
   const [fileData, setFileData] = useState();
   const [positions, setPositions] = useState([
     { positionStartDate: "", positionFinishDate: "", positionHeldTitle: "" },
   ]);
 
-  const { loading, postExperienceData } = UseRoutes();
-
+useEffect(() => {getOneExp(id)}, []);
   useEffect(() => {}, [loading]);
 
   const formValidation = () => {
@@ -75,6 +83,14 @@ const UploadExpereince = () => {
 
   const employed = () => {
     employmentStatus ? setEmployedStatus(false) : setEmployedStatus(true);
+
+    if (!employmentStatus) {
+      setFormData({ ...formData, companyFinishDate: "Present" });
+
+      const list = [...positions];
+      list[0]["positionFinishDate"] = "Present";
+      setPositions(list);
+    }
   };
 
   const onChange = (e) => {
@@ -105,6 +121,8 @@ const UploadExpereince = () => {
   };
 
   const handleSubmitForm = () => {
+    setEmployedStatus(false);
+    setEnable(false);
     const completeFormData = new FormData();
     completeFormData.append("companyName", formData.companyName);
     completeFormData.append("companyStartDate", formData.companyStartDate);
@@ -197,6 +215,10 @@ const UploadExpereince = () => {
                       type={employmentStatus ? "text" : "date"}
                       placeholder={employmentStatus ? "Present" : "dd/mm/yyyy"}
                       onChange={(e) => onChange(e)}
+                      value={
+                        employmentStatus ? "Present" : formData.companyStartDate
+                      }
+                      disabled={employmentStatus ? true : false}
                     />
                     <Form.Text className='text-muted'>
                       eg. {employmentStatus ? "Present" : "dd/mm/yyyy"}
@@ -263,12 +285,17 @@ const UploadExpereince = () => {
                           type={
                             employmentStatus && index === 0 ? "text" : "date"
                           }
-                          value={item.positionFinishDate}
+                          value={
+                            employmentStatus && index === 0
+                              ? "Present"
+                              : item.positionFinishDate
+                          }
                           placeholder={
                             employmentStatus && index === 0
                               ? "Present"
                               : "dd/mm/yyyy"
                           }
+                          disabled={employmentStatus && index === 0}
                           onChange={(e) => positionOnChange(e, index)}
                         />
                         <Form.Text className='text-muted'>

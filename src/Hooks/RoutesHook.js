@@ -71,7 +71,8 @@ const UseRoutes = () => {
     }
   };
 
-  const postExperienceData = async (completeFormData, position) => {
+  const postExperienceData = async (completeFormData) => {
+
     const config = {
       headers: {
         
@@ -109,6 +110,12 @@ const UseRoutes = () => {
     }
   };
 
+  const getOneExp = async (id) => {
+    await axios.get(`${baseURL}/experience/experience/${id}`).then((res) => {
+      setExperience(res.data);
+    });
+  }
+
   return {
     loading,
     setLoading,
@@ -122,7 +129,8 @@ const UseRoutes = () => {
     setShow,
     postExperienceData,
     getExperienceData,
-    experience
+    experience,
+    getOneExp
   };
 };
 
