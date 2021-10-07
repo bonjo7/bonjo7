@@ -61,6 +61,13 @@ const Social = () => {
               meetings, sprint planning sessions, sprint retrospective's,
               customer demonstrations.
             </p>
+            <p>
+              As I have delivered projects within small to large teams both on
+              site and remotely, this has allowed me to knowledge share with
+              colleagues and customer development teams, embrace new ways of
+              working, communicate through various forms such as, face to face,
+              telephone, video chat and instant messenger.
+            </p>
           </div>
         </Container>
       )}

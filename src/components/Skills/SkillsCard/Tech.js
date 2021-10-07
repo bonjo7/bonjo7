@@ -55,6 +55,12 @@ const Tech = () => {
               OpenShift using CI/CD Jenkins pipelines which deploy the
               applications across various environments.
             </p>
+            <p>
+              I have helped deliver these applications within small to large
+              development teams both on site and remotely, ensuring to
+              collaborate with project managers, product owners, UI/UX, testers
+              and developers.
+            </p>
           </div>
         </Container>
       )}

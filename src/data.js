@@ -41,6 +41,7 @@ export const softSkills = [
       "Organisation",
       "Time Management",
       "Attention to detail",
+      "Communication"
     ],
   },
 ];
