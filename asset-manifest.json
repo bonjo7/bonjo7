@@ -1,31 +1,32 @@
 {
   "files": {
-    "main.css": "/bonjo7/static/css/main.187b1a5b.chunk.css",
-    "main.js": "/bonjo7/static/js/main.b5d2aae1.chunk.js",
-    "main.js.map": "/bonjo7/static/js/main.b5d2aae1.chunk.js.map",
-    "runtime-main.js": "/bonjo7/static/js/runtime-main.69fc4efa.js",
-    "runtime-main.js.map": "/bonjo7/static/js/runtime-main.69fc4efa.js.map",
-    "static/css/2.4c97ca4f.chunk.css": "/bonjo7/static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.09711c11.chunk.js": "/bonjo7/static/js/2.09711c11.chunk.js",
-    "static/js/2.09711c11.chunk.js.map": "/bonjo7/static/js/2.09711c11.chunk.js.map",
-    "static/js/3.1da52209.chunk.js": "/bonjo7/static/js/3.1da52209.chunk.js",
-    "static/js/3.1da52209.chunk.js.map": "/bonjo7/static/js/3.1da52209.chunk.js.map",
+    "main.css": "/bonjo7/static/css/main.0f70f0a6.chunk.css",
+    "main.js": "/bonjo7/static/js/main.48096bd8.chunk.js",
+    "main.js.map": "/bonjo7/static/js/main.48096bd8.chunk.js.map",
+    "runtime-main.js": "/bonjo7/static/js/runtime-main.d9aa47e5.js",
+    "runtime-main.js.map": "/bonjo7/static/js/runtime-main.d9aa47e5.js.map",
+    "static/css/2.d6008dad.chunk.css": "/bonjo7/static/css/2.d6008dad.chunk.css",
+    "static/js/2.56574585.chunk.js": "/bonjo7/static/js/2.56574585.chunk.js",
+    "static/js/2.56574585.chunk.js.map": "/bonjo7/static/js/2.56574585.chunk.js.map",
+    "static/js/3.c695dee0.chunk.js": "/bonjo7/static/js/3.c695dee0.chunk.js",
+    "static/js/3.c695dee0.chunk.js.map": "/bonjo7/static/js/3.c695dee0.chunk.js.map",
     "index.html": "/bonjo7/index.html",
-    "static/css/2.4c97ca4f.chunk.css.map": "/bonjo7/static/css/2.4c97ca4f.chunk.css.map",
-    "static/css/main.187b1a5b.chunk.css.map": "/bonjo7/static/css/main.187b1a5b.chunk.css.map",
-    "static/js/2.09711c11.chunk.js.LICENSE.txt": "/bonjo7/static/js/2.09711c11.chunk.js.LICENSE.txt",
+    "static/css/2.d6008dad.chunk.css.map": "/bonjo7/static/css/2.d6008dad.chunk.css.map",
+    "static/css/main.0f70f0a6.chunk.css.map": "/bonjo7/static/css/main.0f70f0a6.chunk.css.map",
+    "static/js/2.56574585.chunk.js.LICENSE.txt": "/bonjo7/static/js/2.56574585.chunk.js.LICENSE.txt",
     "static/media/WIT-logo.0d2484b9.jpeg": "/bonjo7/static/media/WIT-logo.0d2484b9.jpeg",
     "static/media/Waterford-Airport.c66d4c67.png": "/bonjo7/static/media/Waterford-Airport.c66d4c67.png",
     "static/media/defence-forces.17f3dc7b.jpeg": "/bonjo7/static/media/defence-forces.17f3dc7b.jpeg",
     "static/media/ilm.9b511137.png": "/bonjo7/static/media/ilm.9b511137.png",
     "static/media/musgraves.daf4ff8b.png": "/bonjo7/static/media/musgraves.daf4ff8b.png",
-    "static/media/prime.057104e0.png": "/bonjo7/static/media/prime.057104e0.png"
+    "static/media/prime.057104e0.png": "/bonjo7/static/media/prime.057104e0.png",
+    "static/media/stitcherads.f52feddb.png": "/bonjo7/static/media/stitcherads.f52feddb.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.69fc4efa.js",
-    "static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.09711c11.chunk.js",
-    "static/css/main.187b1a5b.chunk.css",
-    "static/js/main.b5d2aae1.chunk.js"
+    "static/js/runtime-main.d9aa47e5.js",
+    "static/css/2.d6008dad.chunk.css",
+    "static/js/2.56574585.chunk.js",
+    "static/css/main.0f70f0a6.chunk.css",
+    "static/js/main.48096bd8.chunk.js"
   ]
 }
