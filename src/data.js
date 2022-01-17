@@ -5,6 +5,7 @@ import DefenceForces from "./images/defence-forces.jpeg";
 import Musgraves from "./images/musgraves.png";
 import WIT from "./images/WIT-logo.jpeg";
 import ILM from "./images/ilm.png";
+import StitcherAds from "./images/stitcherads.png"
 
 export const techSkills = [
   {
@@ -72,12 +73,28 @@ export const achievementSkills = [
 export const experienceData = [
   {
     id: 1,
-    image: RedHat,
-    companyName: "Red Hat",
-    year: "January 2019 - Present",
+    image: StitcherAds,
+    companyName: "StitcherAds",
+    year: "January 2022 - Present",
     positionHeld: [
       {
-        date: "August 2020 – Present",
+        date: "January 2022 – Present",
+        title: "Software Engineer",
+      }
+    ],
+    address: "Unit 1A Esker Business Park, Six Cross Roads, Waterford, Ireland",
+    responsibilities: [
+      "Frontend and backend development using ReactJS and Ruby on Rails"
+    ],
+  },
+  {
+    id: 2,
+    image: RedHat,
+    companyName: "Red Hat",
+    year: "January 2019 - January 2022",
+    positionHeld: [
+      {
+        date: "August 2020 – January 2022",
         title: "Associate Consultant",
       },
       {
@@ -101,7 +118,7 @@ export const experienceData = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     image: SE2,
     companyName: "SE2",
     year: "September 2018 -  December 2018",
@@ -122,7 +139,7 @@ export const experienceData = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     image: WaterfordAirport,
     companyName: "Waterford Airport",
     year: "April 2007 - April 2018",
@@ -149,7 +166,7 @@ export const experienceData = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     image: DefenceForces,
     companyName: "Irish Defence Forces",
     year: "December 2006 - April 2007",
@@ -169,7 +186,7 @@ export const experienceData = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     image: Musgraves,
     companyName: "Musgraves Cash & Carry",
     year: "September 2001 - December 2006",
