@@ -84,7 +84,11 @@ export const experienceData = [
     ],
     address: "Unit 1A Esker Business Park, Six Cross Roads, Waterford, Ireland",
     responsibilities: [
-      "Frontend and backend development using ReactJS and Ruby on Rails"
+     "Implementing new web applications and features (ReactJS and Ruby on Rails).",
+     "Refactoring and implementing fixes for defects in current platforms",
+     "Liaise and collaborate with Product Owner, Product manager, developers, quality assurance and UI/UX to establish deliverables and timelines in order to complete features and fixes in a timely fashion",
+     "Partake in Agile ceremonies, such as daily stand ups, sprint planning, retrospectives, backlog refinement and demonstrations.",
+     "Learning current codebase and Ad-Tech technology.",
     ],
   },
   {
