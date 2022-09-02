@@ -244,3 +244,22 @@ export const educationData = [
     grade: "Pass with Distinction",
   },
 ];
+
+export const movies = [
+  {
+    title: "The Transformers: The Movie",
+    year: "1986",
+  },
+  {
+    title: "Ghostbusters",
+    year: "1984",
+  },
+  {
+    title: "E.T. the Extra-Terrestrial ",
+    year: "1982",
+  },
+  {
+    title: "Predator",
+    year: "1987",
+  },
+];

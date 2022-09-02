@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Jumbotron, Container, Card } from "react-bootstrap";
 import Breadcrumbs from "../Breadcrumb/Breadcrumbs";
-import UseRoutes from "../../Hooks/RoutesHook";
 import { educationData } from "../../data";
 import Spinner from "../Spinner/Spinner";
 import styles from "./Education.module.css";
