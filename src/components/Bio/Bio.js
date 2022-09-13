@@ -2,11 +2,13 @@ import React from "react";
 import Contact from "../Contact/Contact";
 import styles from "./Bio.module.css";
 import logo from "../../images/prime.png";
+import BasicExample from "../Table/Table";
 
 const email = "bernardthompson83@gmail.com";
 const tel = "+353 87 137 7303";
 
 const Bio = () => {
+
   return (
     <>
       <div className={styles.wrapper} role='main' id="landing-page">
@@ -20,6 +22,7 @@ const Bio = () => {
         <p className={styles.title}>Software Developer</p>
       </div>
       <Contact email={email} tel={tel} />
+      <BasicExample/>
     </>
   );
 };
