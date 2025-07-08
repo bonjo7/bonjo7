@@ -9,20 +9,20 @@ import Kargo from "./images/kargo.png"
 
 export const techSkills = [
   {
-    title: "Design",
-    skill: ["HTML", "CSS", "Responsive Design", "Photoshop"],
+    title: "Design & Frontend",
+    skill: ["HTML, CSS, Responsive Design", "CSJavaScript (ES6+)", "ReactJS, Angular", "Native Android (Kotlin), Native iOS (Swift)", "Adobe Photoshop", "Accessibility (WCAG"],
   },
   {
-    title: "Code",
-    skill: ["Javascript", "NodeJS", "Bash", "Java", "SQL", "noSQL"],
+    title: "Backend & Server-Side",
+    skill: ["NodeJS", "Ruby on Rails", "Bash", "PythonL"],
   },
   {
-    title: "Frameworks",
-    skill: ["ReactJS", "Angular", "Native Android", "Native iOS"],
+    title: "Databases & Data Pipelines",
+    skill: ["PostgreSQL", "SQL / NoSQL (MongoDB)", "Snowflake", "Apache Airflow (ETL orchestration in Python)"],
   },
   {
-    title: "Container Technologies",
-    skill: ["Podman", "Docker", "Jenkins Pipelines (CI/CD)", "Openshift"],
+    title: "DevOps, Infrastructure & CI/CD",
+    skill: ["Podman, Docker", "Red Hat OpenShift", "Jenkins Pipelines (CI/CD)", "Argo CD", "Grafana (Monitoring & Alerting)", "Git (Version Control)", "Application & Pipeline Observability"],
   },
 ];
 
