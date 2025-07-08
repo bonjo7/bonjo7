@@ -5,7 +5,7 @@ import DefenceForces from "./images/defence-forces.jpeg";
 import Musgraves from "./images/musgraves.png";
 import WIT from "./images/WIT-logo.jpeg";
 import ILM from "./images/ilm.png";
-import StitcherAds from "./images/stitcherads.png"
+import Kargo from "./images/kargo.png"
 
 export const techSkills = [
   {
@@ -73,22 +73,32 @@ export const achievementSkills = [
 export const experienceData = [
   {
     id: 1,
-    image: StitcherAds,
-    companyName: "StitcherAds",
+    image: Kargo,
+    companyName: "Kargo",
     year: "January 2022 - Present",
     positionHeld: [
       {
-        date: "January 2022 – Present",
+        date: "January 2025 – Present",
+        title: "Senior Software Engineer",
+      },
+      {
+        date: "January 2022 – January 2025",
         title: "Software Engineer",
       }
     ],
     address: "Unit 1A Esker Business Park, Six Cross Roads, Waterford, Ireland",
     responsibilities: [
-     "Implementing new web applications and features (ReactJS and Ruby on Rails).",
-     "Refactoring and implementing fixes for defects in current platforms",
-     "Liaise and collaborate with Product Owner, Product manager, developers, quality assurance and UI/UX to establish deliverables and timelines in order to complete features and fixes in a timely fashion",
-     "Partake in Agile ceremonies, such as daily stand ups, sprint planning, retrospectives, backlog refinement and demonstrations.",
-     "Learning current codebase and Ad-Tech technology.",
+     "Designed, developed, and maintained responsive web applications using ReactJS for front-end and Ruby on Rails for back-end APIs.",
+     "Built scalable and performant data-backed features powered by PostgreSQL, ensuring data integrity and optimized queries.",
+     "Conducted in-depth code reviews, refactoring legacy components for maintainability, and resolving production defects to improve system reliability.",
+     "Authored and maintained Apache Airflow DAGs in Python to automate ETL workflows, ingesting publisher data into Snowflake for downstream analytics.",
+     "Partnered with data teams to optimize query performance and structure data for use in Looker, empowering teams with self-service dashboards and visual exploration tools.",
+     "Application migrations and managed deployments using Argo CD, integrating CI/CD workflows for streamlined release management.",
+     "Developed Grafana dashboards and integrated alerting mechanisms to monitor application and data pipeline health, reducing downtime and improving response times to anomalies.",
+     "Collaborated closely with Product Owners, Product Managers, UI/UX designers, QA engineers, and fellow developers to scope, design, and deliver features.",
+     "Actively contributed to Agile ceremonies, including sprint planning, standups, retrospectives, and backlog grooming.",
+     "Took ownership of deliverables and coordinated across teams to ensure timely releases and quality assurance.",
+     "Mentored junior engineers through pairing sessions, documentation walkthroughs, and architectural discussions.",
     ],
   },
   {
